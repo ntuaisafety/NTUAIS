@@ -1,14 +1,25 @@
 ---
 title: "Events"
-description: "Workshops, meetups, and reading groups organized by NTUAIS"
+description: "Workshops, reading groups, and programs organized by NTUAIS"
 cascade:
-  showDate: true
+  showDate: false
   showAuthor: false
   showReadingTime: false
   showWordCount: false
-  groupByYear: true
   cardView: true
   showSummary: true
 ---
 
-Check out our upcoming and past events including workshops, reading groups, and community meetups.
+We organize regular programs to help build the AI Safety research community in Taiwan.
+
+## 🎯 Key Tracks
+
+Our three main programs run throughout the year:
+
+- **BlueDot Fellowship** — A 10-week introductory program for newcomers
+- **Technical Paper Reading** — 15-week advanced research paper discussions  
+- **Weekly Policy Reading** — AI governance and regulation discussions with NTU Law
+
+---
+
+*Interested in joining? [Contact us on Discord](https://discord.gg/DeypaQEB)!*
