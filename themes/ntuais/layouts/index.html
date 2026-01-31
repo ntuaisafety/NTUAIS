@@ -2,11 +2,12 @@
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <h1 class="hero-title">{{ .Site.Params.heroTitle | default "Welcome to TWAIS" }}</h1>
-      <p class="hero-subtitle">{{ .Site.Params.heroSubtitle | default "Exploring the frontiers of Artificial Intelligence" }}</p>
+      <h1 class="hero-title">{{ .Site.Params.heroTitle | default "Welcome to NTUAIS" }}</h1>
+      <p class="hero-subtitle">{{ .Site.Params.heroSubtitle | default "National Taiwan University AI Safety Group" }}
+      </p>
       <div class="hero-cta">
-        <a href="{{ "about/" | relURL }}" class="btn btn-primary">Learn More</a>
-        <a href="{{ "projects/" | relURL }}" class="btn btn-secondary">Our Projects</a>
+        <a href="{{ " about/" | relURL }}" class="btn btn-primary">Learn More</a>
+        <a href="{{ " projects/" | relURL }}" class="btn btn-secondary">Our Projects</a>
       </div>
     </div>
   </div>
@@ -38,7 +39,7 @@
       {{ range $recentPosts }}
       <article class="post-card">
         <div class="post-meta">
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+          <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
         </div>
         <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
         <p>{{ .Summary | truncate 120 }}</p>
@@ -47,7 +48,7 @@
       {{ end }}
     </div>
     <div class="section-cta">
-      <a href="{{ "blog/" | relURL }}" class="btn btn-secondary">View All Posts</a>
+      <a href="{{ " blog/" | relURL }}" class="btn btn-secondary">View All Posts</a>
     </div>
   </div>
 </section>
@@ -74,7 +75,7 @@
       {{ end }}
     </div>
     <div class="section-cta">
-      <a href="{{ "projects/" | relURL }}" class="btn btn-secondary">View All Projects</a>
+      <a href="{{ " projects/" | relURL }}" class="btn btn-secondary">View All Projects</a>
     </div>
   </div>
 </section>
