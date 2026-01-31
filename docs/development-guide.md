@@ -1,11 +1,12 @@
-# TWAIS Website Development Guide
+# NTUAIS Website Development Guide
 
 ## Content Editing
 
 ### Adding/Editing Pages
+
 All content is written in **Markdown** format, located in the `content/` directory.
 
-```
+```text
 content/
 ├── about/         # About page
 ├── blog/          # Blog posts
@@ -14,20 +15,24 @@ content/
 ```
 
 ### Creating a New Blog Post
+
 1. Create a new `.md` file in `content/blog/`
 2. Add frontmatter at the top:
-   ```yaml
-   ---
-   title: "Your Post Title"
-   date: 2026-01-31
-   draft: false
-   ---
-   ```
+
+```yaml
+---
+title: "Your Post Title"
+date: 2026-01-31
+draft: false
+---
+```
+
 3. Write your content in Markdown below the frontmatter
 
 ### Modifying Theme/Layout
-- **HTML Templates**: `themes/twais/layouts/`
-- **CSS Styles**: `themes/twais/static/css/`
+
+- **HTML Templates**: `themes/ntuais/layouts/`
+- **CSS Styles**: `themes/ntuais/static/css/`
 
 ## Running Locally
 
