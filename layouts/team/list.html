@@ -1,0 +1,72 @@
+{{ define "main" }}
+<main class="content-section py-12">
+    <div class="max-w-5xl mx-auto px-6 md:px-12">
+
+        {{/* Page Header */}}
+        <header class="mb-12">
+            <h1 class="linear-headline mb-4">{{ .Title }}</h1>
+            {{ with .Description }}
+            <p class="linear-subheadline">{{ . }}</p>
+            {{ end }}
+            {{ with .Content }}
+            <div class="prose prose-invert mt-4">{{ . }}</div>
+            {{ end }}
+        </header>
+
+        {{/* Team Members List - Horizontal Row Layout */}}
+        <div class="team-list space-y-6">
+            {{ range .Pages }}
+            {{ $authorKey := index .Params.authors 0 }}
+            {{ $authorData := index $.Site.Data.authors $authorKey }}
+
+            <article class="team-member-row">
+                {{/* Profile Picture */}}
+                <div class="team-member-avatar">
+                    {{ if $authorData.image }}
+                    <img src="{{ $authorData.image | relURL }}" alt="{{ .Title }}"
+                        class="w-full h-full object-cover rounded-xl">
+                    {{ else }}
+                    <div class="w-full h-full bg-neutral-700 rounded-xl flex items-center justify-center">
+                        <span class="text-4xl">👤</span>
+                    </div>
+                    {{ end }}
+                </div>
+
+                {{/* Info Section */}}
+                <div class="team-member-info">
+                    {{/* Name */}}
+                    <h2 class="team-member-name">
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    </h2>
+
+                    {{/* Role / Short Description */}}
+                    {{ with .Description }}
+                    <p class="team-member-role">{{ . }}</p>
+                    {{ end }}
+
+                    {{/* Summary / Bio */}}
+                    {{ with .Summary }}
+                    <p class="team-member-bio">{{ . }}</p>
+                    {{ end }}
+
+                    {{/* Social Links */}}
+                    {{ with $authorData.social }}
+                    <div class="team-member-social">
+                        {{ range . }}
+                        {{ range $platform, $url := . }}
+                        <a href="{{ $url }}" target="_blank" rel="noopener" class="team-social-link"
+                            title="{{ $platform | title }}">
+                            {{ partial "icon.html" $platform }}
+                        </a>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+            </article>
+            {{ end }}
+        </div>
+
+    </div>
+</main>
+{{ end }}

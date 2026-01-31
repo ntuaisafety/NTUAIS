@@ -665,3 +665,123 @@ body,
 #app {
   background-color: var(--linear-bg) !important;
 }
+
+/* ============================================
+   TEAM PAGE - Horizontal Row Layout
+   ============================================ */
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.team-member-row {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--linear-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.team-member-row:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Avatar */
+.team-member-avatar {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+}
+
+.team-member-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Info Section */
+.team-member-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.team-member-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--linear-text-bright) !important;
+  margin: 0;
+}
+
+.team-member-name a {
+  color: var(--linear-text-bright) !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.team-member-name a:hover {
+  color: var(--linear-accent-blue) !important;
+}
+
+.team-member-role {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--linear-accent-blue) !important;
+  margin: 0;
+}
+
+.team-member-bio {
+  font-size: 0.9rem;
+  color: var(--linear-subtext) !important;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Social Links */
+.team-member-social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.team-social-link {
+  color: var(--linear-subtext) !important;
+  transition: color 0.2s ease;
+}
+
+.team-social-link:hover {
+  color: var(--linear-text-bright) !important;
+}
+
+.team-social-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Responsive - Stack on mobile */
+@media (max-width: 640px) {
+  .team-member-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .team-member-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .team-member-info {
+    align-items: center;
+  }
+
+  .team-member-social {
+    justify-content: center;
+  }
+}
