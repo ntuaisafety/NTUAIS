@@ -2,7 +2,7 @@
 title: "BlueDot Fellowship 2026"
 description: "Ten-week introductory program for AI Safety newcomers"
 summary: "Learn to read and understand technical AI safety papers through the BlueDot Impact course materials."
-date: 2026-02-28
+date: 2026-01-31
 tags: ["fellowship", "introductory", "bluedot", "upcoming"]
 ---
 

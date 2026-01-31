@@ -2,7 +2,7 @@
 title: "Weekly Policy Reading 2026"
 description: "Track global AI policy news and lead balanced discussions"
 summary: "Stay current on AI regulation through expert analysis and group debates."
-date: 2026-02-28
+date: 2026-01-31
 tags: ["policy", "governance", "law", "upcoming"]
 ---
 
