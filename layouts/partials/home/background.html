@@ -1,136 +1,118 @@
 {{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
 
-{{/* Whipsaw-Inspired Hero Section */}}
-<article class="hero-background min-h-screen flex flex-col items-center justify-center relative">
-  
-  {{/* Gradient overlay for depth */}}
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0f172a] pointer-events-none"></div>
-  
-  {{/* Main content container */}}
-  <div class="relative z-10 flex flex-col items-center justify-center px-6 py-20 text-center max-w-5xl mx-auto">
-    
-    {{/* Optional: Author/Logo Image */}}
+{{/* Linear-Inspired Hero Section */}}
+<article class="hero-linear">
+
+  {{/* Main content container - LEFT ALIGNED */}}
+  <div class="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12 py-32">
+
+    {{/* Optional: Logo/Author Image */}}
     {{ with .Site.Params.Author.image }}
-      {{ $authorImage := "" }}
-      {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
-        {{ $authorImage = resources.GetRemote . }}
-      {{ else }}
-        {{ $authorImage = resources.Get . }}
-      {{ end }}
-      {{ if $authorImage }}
-        {{ $final := $authorImage }}
-        {{ if not (or $disableImageOptimization (eq $authorImage.MediaType.SubType "svg")) }}
-          {{ $final = $authorImage.Fill "288x288 q96" }}
-        {{ end }}
-        <img 
-          class="mb-8 h-24 w-24 rounded-full ring-4 ring-white/10 animate-fade-in-up" 
-          width="96" 
-          height="96"
-          alt="{{ $.Site.Params.Author.name | default `Logo` }}" 
-          src="{{ $final.RelPermalink }}">
-      {{ end }}
+    {{ $authorImage := "" }}
+    {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+    {{ $authorImage = resources.GetRemote . }}
+    {{ else }}
+    {{ $authorImage = resources.Get . }}
     {{ end }}
-    
-    {{/* Main Headline */}}
-    <h1 class="hero-headline animate-fade-in-up mb-6">
+    {{ if $authorImage }}
+    {{ $final := $authorImage }}
+    {{ if not (or $disableImageOptimization (eq $authorImage.MediaType.SubType "svg")) }}
+    {{ $final = $authorImage.Fill "288x288 q96" }}
+    {{ end }}
+    <img class="mb-8 h-16 w-16 rounded-xl animate-blur-reveal" width="64" height="64"
+      alt="{{ $.Site.Params.Author.name | default `Logo` }}" src="{{ $final.RelPermalink }}">
+    {{ end }}
+    {{ end }}
+
+    {{/* Main Headline - LEFT ALIGNED */}}
+    <h1 class="linear-headline animate-blur-reveal delay-100">
       {{ .Site.Params.Author.name | default .Site.Title }}
     </h1>
-    
+
     {{/* Tagline with Typewriter Effect */}}
     {{ with .Site.Params.Author.headline }}
-    <h2 class="hero-subtitle animate-fade-in-up animation-delay-200 mb-12">
+    <h2 class="linear-subheadline animate-blur-reveal delay-200 max-w-2xl">
       {{ if $.Site.Params.homepage.typewriter.enabled }}
-        <span id="typewriter"></span><span class="cursor">{{ $.Site.Params.homepage.typewriter.cursor | default "|" }}</span>
-        <script>
-          const texts = {{ $.Site.Params.homepage.typewriter.texts }};
-          const speed = {{ $.Site.Params.homepage.typewriter.speed | default 80 }};
-          let textIndex = 0;
-          let charIndex = 0;
-          let isDeleting = false;
-          const typeWriterElement = document.getElementById("typewriter");
+      <span id="typewriter"></span><span class="cursor">{{ $.Site.Params.homepage.typewriter.cursor | default "|"
+        }}</span>
+      <script>
+        const texts = {{ $.Site.Params.homepage.typewriter.texts }};
+        const speed = {{ $.Site.Params.homepage.typewriter.speed | default 60 }};
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeWriterElement = document.getElementById("typewriter");
 
-          function type() {
-            const currentText = texts[textIndex];
-            if (isDeleting) {
-              typeWriterElement.textContent = currentText.substring(0, charIndex - 1);
-              charIndex--;
-            } else {
-              typeWriterElement.textContent = currentText.substring(0, charIndex + 1);
-              charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentText.length) {
-              isDeleting = true;
-              setTimeout(type, 2500);
-            } else if (isDeleting && charIndex === 0) {
-              isDeleting = false;
-              textIndex = (textIndex + 1) % texts.length;
-              setTimeout(type, 400);
-            } else {
-              setTimeout(type, isDeleting ? speed / 2 : speed);
-            }
+        function type() {
+          const currentText = texts[textIndex];
+          if (isDeleting) {
+            typeWriterElement.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+          } else {
+            typeWriterElement.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
           }
 
-          document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(type, 800);
-          });
-        </script>
+          if (!isDeleting && charIndex === currentText.length) {
+            isDeleting = true;
+            setTimeout(type, 2500);
+          } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            setTimeout(type, 400);
+          } else {
+            setTimeout(type, isDeleting ? speed / 2 : speed);
+          }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+          setTimeout(type, 600);
+        });
+      </script>
       {{ else }}
-        {{ . | markdownify }}
+      {{ . | markdownify }}
       {{ end }}
     </h2>
     {{ end }}
-    
-    {{/* CTA Buttons - Capsule Style */}}
-    <div class="flex flex-wrap gap-4 justify-center animate-fade-in-up animation-delay-400">
+
+    {{/* CTA Buttons - Linear Style (8px radius) */}}
+    <div class="flex flex-wrap gap-3 animate-blur-reveal delay-300">
       {{ with .Site.Params.homepage.button }}
-        {{ if .enable }}
-        <a href="{{ .url }}" class="btn-capsule btn-capsule-primary">
-          {{ .text }}
-        </a>
-        {{ end }}
+      {{ if .enable }}
+      <a href="{{ .url }}" class="btn-linear btn-linear-primary">
+        {{ .text }}
+      </a>
+      {{ end }}
       {{ end }}
       {{ with .Site.Params.homepage.secondaryButton }}
-        {{ if .enable }}
-        <a href="{{ .url }}" class="btn-capsule btn-capsule-secondary">
-          {{ .text }}
-        </a>
-        {{ end }}
+      {{ if .enable }}
+      <a href="{{ .url }}" class="btn-linear btn-linear-secondary">
+        {{ .text }}
+      </a>
+      {{ end }}
       {{ end }}
     </div>
-    
+
     {{/* Social Links */}}
     {{ with .Site.Params.Author.links }}
-    <div class="mt-12 flex flex-wrap justify-center gap-4 animate-fade-in-up animation-delay-600">
+    <div class="mt-10 flex flex-wrap gap-4 animate-blur-reveal delay-400">
       {{ range $links := . }}
-        {{ range $name, $url := $links }}
-        <a 
-          class="text-white/50 hover:text-white transition-colors duration-300" 
-          href="{{ $url }}"
-          target="_blank" 
-          aria-label="{{ $name | title }}" 
-          title="{{ $name | title }}"
-          rel="me noopener noreferrer">
-          {{ partial "icon.html" $name }}
-        </a>
-        {{ end }}
+      {{ range $name, $url := $links }}
+      <a class="text-[#8A8F98] hover:text-white transition-colors duration-200" href="{{ $url }}" target="_blank"
+        aria-label="{{ $name | title }}" title="{{ $name | title }}" rel="me noopener noreferrer">
+        {{ partial "icon.html" $name }}
+      </a>
+      {{ end }}
       {{ end }}
     </div>
     {{ end }}
-    
+
   </div>
-  
-  {{/* Scroll indicator */}}
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-    <svg class="w-6 h-6 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-    </svg>
-  </div>
-  
+
 </article>
 
-{{/* Content section below hero */}}
-<section class="bg-[#0f172a] py-16">
+{{/* Content section below hero - Scrollable */}}
+<section class="content-section py-16">
   <div class="max-w-4xl mx-auto px-6">
     <div class="prose prose-invert prose-lg mx-auto">
       {{ .Content }}
@@ -139,6 +121,6 @@
 </section>
 
 {{/* Recent articles */}}
-<section class="bg-[#0f172a]">
+<section class="content-section">
   {{ partial "recent-articles/main.html" . }}
 </section>

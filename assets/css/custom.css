@@ -1,157 +1,189 @@
 /* ============================================
-   NTUAIS Custom Styles - Whipsaw-Inspired
+   NTUAIS Custom Styles - Linear-Inspired
    ============================================ */
 
-/* Google Fonts - Instrument Sans */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap');
+/* Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;510;600;700&display=swap');
 
 /* ============================================
-   Global Dark Theme Overrides
+   CSS Variables
    ============================================ */
 :root {
-  --color-neutral-950: #0f172a;
-  --color-neutral-900: #1e293b;
-  --color-neutral-800: #334155;
-  --color-neutral-100: #f1f5f9;
-  --color-neutral-50: #f8fafc;
-  --color-primary-500: #3b82f6;
-  --color-primary-400: #60a5fa;
-}
-
-html, body {
-  background-color: var(--color-neutral-950) !important;
-  font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif !important;
+  --linear-bg: #08090A;
+  --linear-text: #F7F8F8;
+  --linear-subtext: #8A8F98;
+  --linear-button-bg: #E6E6E6;
+  --linear-button-text: #08090A;
+  --linear-glow-blue: rgba(56, 189, 248, 0.15);
+  --linear-glow-purple: rgba(139, 92, 246, 0.1);
 }
 
 /* ============================================
-   Hero Section Styles
+   Global Overrides
    ============================================ */
-.hero-background {
-  background: linear-gradient(135deg, var(--color-neutral-950) 0%, var(--color-neutral-900) 50%, var(--color-neutral-800) 100%);
+html,
+body {
+  background-color: var(--linear-bg) !important;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* ============================================
+   Hero Section - Linear Style
+   ============================================ */
+.hero-linear {
+  background-color: var(--linear-bg);
   min-height: 100vh;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
-/* Animated gradient overlay */
-.hero-background::before {
+/* Blue Vignette Glow */
+.hero-linear::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-              radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-  animation: gradientShift 15s ease-in-out infinite alternate;
+  top: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at 30% 0%, var(--linear-glow-blue) 0%, transparent 60%);
+  pointer-events: none;
+  animation: glowPulse 8s ease-in-out infinite alternate;
 }
 
-@keyframes gradientShift {
-  0% { opacity: 0.6; transform: scale(1); }
-  100% { opacity: 1; transform: scale(1.1); }
+.hero-linear::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  right: -20%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(ellipse at 70% 100%, var(--linear-glow-purple) 0%, transparent 50%);
+  pointer-events: none;
+  animation: glowPulse 10s ease-in-out infinite alternate-reverse;
 }
 
-/* Hero headline */
-.hero-headline {
-  font-family: 'Instrument Sans', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: clamp(2.5rem, 6vw, 5rem) !important;
-  line-height: 1.1 !important;
-  letter-spacing: -0.02em !important;
-  color: #ffffff !important;
-  text-align: center !important;
-}
+@keyframes glowPulse {
+  0% {
+    opacity: 0.5;
+  }
 
-/* Hero subtitle / tagline */
-.hero-subtitle {
-  font-family: 'Instrument Sans', sans-serif !important;
-  font-weight: 400 !important;
-  font-size: clamp(1rem, 2vw, 1.5rem) !important;
-  color: rgba(255, 255, 255, 0.7) !important;
-  text-align: center !important;
+  100% {
+    opacity: 1;
+  }
 }
 
 /* ============================================
-   Capsule Button Styles
+   Typography - Linear Style
    ============================================ */
-.btn-capsule {
+.linear-headline {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 510 !important;
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -0.022em !important;
+  color: var(--linear-text) !important;
+  margin-bottom: 1rem !important;
+}
+
+.linear-subheadline {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: clamp(1rem, 2vw, 1.25rem) !important;
+  line-height: 1.5 !important;
+  color: var(--linear-subtext) !important;
+  margin-bottom: 2rem !important;
+}
+
+/* ============================================
+   Buttons - Linear Style (8px radius)
+   ============================================ */
+.btn-linear {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 0.875rem 2rem !important;
-  border-radius: 9999px !important;
-  font-family: 'Instrument Sans', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 1rem !important;
+  padding: 0 12px !important;
+  height: 36px !important;
+  border-radius: 8px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 510 !important;
+  font-size: 14px !important;
   text-decoration: none !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: all 0.2s ease !important;
   cursor: pointer !important;
 }
 
-/* Primary button - filled */
-.btn-capsule-primary {
+/* Primary button - light background */
+.btn-linear-primary {
+  background-color: var(--linear-button-bg) !important;
+  color: var(--linear-button-text) !important;
+  border: none !important;
+}
+
+.btn-linear-primary:hover {
   background-color: #ffffff !important;
-  color: var(--color-neutral-950) !important;
-  border: 2px solid #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15) !important;
 }
 
-.btn-capsule-primary:hover {
+/* Secondary button - outline/ghost */
+.btn-linear-secondary {
   background-color: transparent !important;
-  color: #ffffff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.15) !important;
+  color: var(--linear-subtext) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Secondary button - outline */
-.btn-capsule-secondary {
-  background-color: transparent !important;
-  color: #ffffff !important;
-  border: 2px solid rgba(255, 255, 255, 0.4) !important;
-}
-
-.btn-capsule-secondary:hover {
-  border-color: #ffffff !important;
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  transform: translateY(-2px) !important;
+.btn-linear-secondary:hover {
+  color: var(--linear-text) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
 /* ============================================
-   Entrance Animations
+   Blur-Reveal Animation
    ============================================ */
-@keyframes fadeInUp {
-  from {
+@keyframes blurReveal {
+  0% {
     opacity: 0;
-    transform: translateY(30px);
+    filter: blur(10px);
+    transform: translateY(10px);
   }
-  to {
+
+  100% {
     opacity: 1;
+    filter: blur(0);
     transform: translateY(0);
   }
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+.animate-blur-reveal {
+  animation: blurReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.animation-delay-200 {
+.delay-100 {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.delay-200 {
   animation-delay: 0.2s;
   opacity: 0;
 }
 
-.animation-delay-400 {
+.delay-300 {
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.delay-400 {
   animation-delay: 0.4s;
   opacity: 0;
 }
 
-.animation-delay-600 {
-  animation-delay: 0.6s;
+.delay-500 {
+  animation-delay: 0.5s;
   opacity: 0;
-}
-
-/* ============================================
-   Navigation Overrides
-   ============================================ */
-header {
-  background: rgba(15, 23, 42, 0.8) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
 }
 
 /* ============================================
@@ -159,21 +191,49 @@ header {
    ============================================ */
 .cursor {
   display: inline-block;
-  color: var(--color-primary-400);
+  color: #38bdf8;
   animation: blink 1s infinite;
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 /* ============================================
-   Responsive Adjustments
+   Navigation Override
+   ============================================ */
+header {
+  background: rgba(8, 9, 10, 0.8) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* ============================================
+   Content Section Below Hero
+   ============================================ */
+.content-section {
+  background-color: var(--linear-bg);
+}
+
+/* ============================================
+   Responsive
    ============================================ */
 @media (max-width: 768px) {
-  .btn-capsule {
-    padding: 0.75rem 1.5rem !important;
-    font-size: 0.875rem !important;
+  .linear-headline {
+    font-size: 2rem !important;
+  }
+
+  .btn-linear {
+    height: 40px !important;
+    padding: 0 16px !important;
   }
 }
