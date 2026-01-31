@@ -891,24 +891,25 @@ body,
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .logo-item:hover {
   opacity: 1;
+  transform: scale(1.05);
 }
 
 .logo-svg {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   color: var(--linear-subtext);
   transition: color 0.3s ease;
 }
 
 .logo-img {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
   border-radius: 8px;
 }
