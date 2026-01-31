@@ -1,0 +1,16 @@
+{
+    "name": "Example Member",
+    "image": "img/members/example.jpg",
+    "bio": "Organizer @ NTUAIS",
+    "social": [
+        {
+            "github": "https://github.com/example"
+        },
+        {
+            "twitter": "https://twitter.com/example"
+        },
+        {
+            "linkedin": "https://linkedin.com/in/example"
+        }
+    ]
+}
