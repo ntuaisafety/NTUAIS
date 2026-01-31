@@ -1,43 +1,67 @@
 # NTUAIS Website
 
-This is the official website for NTUAIS (National Taiwan University AI Safety Group), built with [Hugo](https://gohugo.io/).
+Official website for **NTUAIS** (National Taiwan University AI Safety Group).
 
-## Prerequisites
+Built with [Hugo](https://gohugo.io/) and [Blowfish](https://blowfish.page/) theme.
 
-You need to have Hugo installed on your machine.
+## Quick Start
 
-### macOS (Homebrew)
+### Prerequisites
 
+**macOS:**
 ```bash
 brew install hugo
 ```
 
-### Linux
-
-#### Snap (Recommended)
-
+**Linux:**
 ```bash
 sudo snap install hugo
 ```
 
-#### Debian/Ubuntu
-
-```bash
-sudo apt-get install hugo
-```
-
-## Running Locally
-
-To start the development server:
+### Development
 
 ```bash
 hugo server
 ```
 
-The site will be available at `http://localhost:1313`.
+Open `http://localhost:1313`
+
+## Features
+
+- Linear-inspired dark theme
+- Team page with horizontal profile cards
+- Events with Upcoming/Past sections
+- Sponsors & Collaborators wall (Logo.dev integration)
+- Blog with categories and tags
 
 ## Project Structure
 
-- `content/`: Markdown content for pages
-- `themes/ntuais/`: Custom theme files (layout and styles)
-- `hugo.toml`: Main configuration file
+```
+├── content/
+│   ├── blog/          # Blog posts
+│   ├── events/        # Events and programs
+│   ├── team/          # Team member profiles
+│   └── resources/     # Learning resources
+├── layouts/
+│   ├── events/        # Custom events template
+│   ├── team/          # Custom team template
+│   └── partials/      # Shared components
+├── assets/css/        # Custom CSS
+├── config/_default/   # Hugo configuration
+└── themes/blowfish/   # Theme (git submodule)
+```
+
+## Navigation
+
+Home → Events → Blog → Resources → Team → About
+
+## Key Tracks
+
+1. **BlueDot Fellowship** - 10-week introductory program
+2. **Technical Paper Reading** - 15-week research discussions
+3. **Weekly Policy Reading** - AI governance with NTU Law
+
+## Documentation
+
+- `docs/website-development-roadmap.md` - Feature roadmap
+- `devlogs/` - Development logs
