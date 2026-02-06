@@ -22,3 +22,7 @@ I’ve been actively involved for 3+ years in the AGI safety / security communit
 I often micro-blog my thoughts and document my growth in the form of instagram stories (you can view my story archives there). Also, proud vegan (mostly successful, sometimes flexitarian). Over at Tzu’s Newsletter – I sometimes write to my people.
 
 And my speaker profile here, happy to advise on your AGI safety / security project, with priority given to people in government and industry.
+
+## Contact
+
+- [Website](https://tzukitchan.com/)
