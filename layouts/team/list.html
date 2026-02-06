@@ -25,10 +25,12 @@
                     {{ $avatar := .Resources.GetMatch "avatar.*" }}
                     {{ if $avatar }}
                     <img src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}"
-                        class="w-full h-full object-cover rounded-xl">
+                        class="w-full h-full object-cover rounded-xl" style="pointer-events: none;"
+                        data-zoomable="false">
                     {{ else if $authorData.image }}
                     <img src="{{ $authorData.image | relURL }}" alt="{{ .Title }}"
-                        class="w-full h-full object-cover rounded-xl">
+                        class="w-full h-full object-cover rounded-xl" style="pointer-events: none;"
+                        data-zoomable="false">
                     {{ else }}
                     <div class="w-full h-full bg-neutral-700 rounded-xl flex items-center justify-center">
                         <span class="text-4xl">👤</span>
@@ -48,12 +50,7 @@
                     <p class="team-member-role">{{ . }}</p>
                     {{ end }}
 
-                    {{/* Summary / Bio */}}
-                    {{ with .Summary }}
-                    <p class="team-member-bio">{{ . }}</p>
-                    {{ end }}
-
-                    {{/* Social Links */}}
+                    {{/* Social Links - Moved up, Bio removed */}}
                     {{ with $authorData.social }}
                     <div class="team-member-social">
                         {{ range . }}
