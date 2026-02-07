@@ -42,3 +42,8 @@
   name = "Team"
   pageRef = "team"
   weight = 20
+
+[[footer]]
+  name = "Contact"
+  url = "mailto:ntuaisafety@gmail.com"
+  weight = 30
