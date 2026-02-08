@@ -5,10 +5,10 @@ draft: false
 summary: "你正站在 AI 安全技術旅程的起點。本週課程整理了 AI 安全技術的全貌，並提供具體的職涯建議與行動計畫，協助你找到適合自己的貢獻方式。"
 tags: ["AI Safety", "Course", "Career"]
 categories: ["Education"]
-author: "BlueDot Impact (Translated by Yu-Chen Tsai)"
+author: "Yu-Chen Tsai (Zen)"
 showAuthor: false
 authors:
-  - "bluedot"
+  - "zen"
 ---
 
 **你正站在 AI 安全技術旅程的起點。**

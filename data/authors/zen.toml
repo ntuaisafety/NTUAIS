@@ -1,0 +1,8 @@
+name = "Yu-Chen Tsai (Zen)"
+image = "img/members/avatar-m.png"
+bio = "B.S. Student @ NTU Math | HCI Lab. Workshop facilitator at 2025 Taiwan AI Safety Summer Workshop."
+social = [
+  { email = "mailto:95happyzen@gmail.com" },
+  { facebook = "https://www.facebook.com/zen.tsai.37" },
+  { threads = "https://www.threads.com/@tsai_zen" }
+]
