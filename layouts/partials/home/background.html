@@ -85,7 +85,7 @@
     <div class="mt-8 flex flex-wrap gap-4 animate-blur-reveal delay-400">
       {{ range $links := . }}
       {{ range $name, $url := $links }}
-      <a class="text-[#9CA3AF] hover:text-white transition-colors duration-200" href="{{ $url }}" target="_blank"
+      <a class="text-neutral-400 hover:text-white transition-colors duration-200" href="{{ $url }}" target="_blank"
         aria-label="{{ $name | title }}" title="{{ $name | title }}" rel="me noopener noreferrer">
         {{ partial "icon.html" $name }}
       </a>
@@ -103,12 +103,10 @@
 
 {{/* Upcoming Programs Section - 2026 Highlight */}}
 <section class="content-section py-24 relative overflow-hidden" style="background-color: transparent;">
-  {{/* Background ambient glow - Using inline styles for assured rendering */}}
+  {{/* Background ambient glow */}}
   <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-1/2 left-1/4 w-96 h-96 rounded-full"
-      style="background-color: rgba(111, 182, 164, 0.10); filter: blur(100px);"></div>
-    <div class="absolute top-1/2 right-1/4 w-96 h-96 rounded-full"
-      style="background-color: rgba(47, 105, 92, 0.14); filter: blur(100px);"></div>
+    <div class="absolute top-1/2 left-1/4 w-96 h-96 rounded-full bg-primary-400/10 blur-[100px]"></div>
+    <div class="absolute top-1/2 right-1/4 w-96 h-96 rounded-full bg-primary-600/[0.14] blur-[100px]"></div>
   </div>
 
   <div class="max-w-5xl mx-auto px-6 md:px-12 relative z-10">

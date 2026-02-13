@@ -33,31 +33,27 @@
 
 {{ $isGreen := eq $badgeColor "green" }}
 {{ $gradientUrl := cond $isGreen "url(#gradient-green)" "url(#gradient-purple)" }}
-{{ $hoverBorderGradient := cond $isGreen "linear-gradient(to bottom, rgba(34,197,94,0.3), rgba(34,197,94,0.1), transparent)" "linear-gradient(to bottom, rgba(168,85,247,0.3), rgba(168,85,247,0.1), transparent)" }}
-{{ $iconBgGradient := cond $isGreen "linear-gradient(135deg, rgba(34,197,94,0.2), rgba(5,150,105,0.2))" "linear-gradient(135deg, rgba(168,85,247,0.2), rgba(124,58,237,0.2))" }}
-{{ $iconBorderColor := cond $isGreen "rgba(34,197,94,0.2)" "rgba(168,85,247,0.2)" }}
+{{ $hoverBorderClass := cond $isGreen "bg-gradient-green-hover" "bg-gradient-purple-hover" }}
+{{ $iconBgClass := cond $isGreen "bg-gradient-to-br from-green-500/20 to-emerald-600/20" "bg-gradient-to-br from-purple-500/20 to-violet-700/20" }}
+{{ $iconBorderClass := cond $isGreen "border-green-500/20" "border-purple-500/20" }}
 {{ $textColor := cond $isGreen "text-green-400" "text-purple-400" }}
-{{ $badgeBg := cond $isGreen "rgba(34,197,94,0.1)" "rgba(168,85,247,0.1)" }}
-{{ $badgeBorder := cond $isGreen "rgba(34,197,94,0.2)" "rgba(168,85,247,0.2)" }}
+{{ $badgeBgClass := cond $isGreen "bg-green-500/10" "bg-purple-500/10" }}
+{{ $badgeBorderClass := cond $isGreen "border-green-500/20" "border-purple-500/20" }}
 {{ $hoverTextColor := cond $isGreen "hover:text-green-300" "hover:text-purple-300" }}
 
 <div class="relative group h-full">
     {{/* Subtle glow border - Invisible by default, appears on hover */}}
-    <div class="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style="background: {{ $hoverBorderGradient }};"></div>
+    <div class="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 {{ $hoverBorderClass }}"></div>
 
-    <div class="relative rounded-2xl p-6 h-full flex flex-col border border-transparent group-hover:border-neutral-800 transition-all duration-300 group-hover:bg-[#0d1117]/80"
-        style="background-color: transparent;">
+    <div class="relative rounded-2xl p-6 h-full flex flex-col border border-transparent group-hover:border-neutral-800 transition-all duration-300 group-hover:bg-[#0d1117]/80 bg-transparent">
         {{/* Icon + Badge Row */}}
         <div class="flex items-center justify-between mb-5">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center border"
-                style="background: {{ $iconBgGradient }}; border-color: {{ $iconBorderColor }};">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center border {{ $iconBgClass }} {{ $iconBorderClass }}">
                 <svg class="w-6 h-6 {{ $textColor }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $iconPath }}" />
                 </svg>
             </div>
-            <span class="px-3 py-1 text-xs font-medium {{ $textColor }} rounded-full border"
-                style="background-color: {{ $badgeBg }}; border-color: {{ $badgeBorder }};">
+            <span class="px-3 py-1 text-xs font-medium {{ $textColor }} rounded-full border {{ $badgeBgClass }} {{ $badgeBorderClass }}">
                 {{ $badge }}
             </span>
         </div>
