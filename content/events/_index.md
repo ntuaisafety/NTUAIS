@@ -11,14 +11,14 @@ cascade:
   showSummary: true
 ---
 
-We organize regular programs to help build the AI Safety research community in Taiwan.
+Our programs are designed to give participants a real understanding of AI safety — from the technical foundations of alignment and interpretability to the governance and policy questions surrounding advanced AI systems.
 
 ## Key Tracks
 
 Our main programs run throughout the year:
 
-- **BlueDot Fellowship** — A 10-week introductory program for newcomers
-- **Technical Paper Reading** — 15-week advanced research paper discussions
+- **BlueDot Fellowship** — A 10-week introductory program covering AI threat models, safety techniques, and defence strategies
+- **Technical Paper Reading** — 15-week deep engagement with current research in interpretability, alignment, oversight, and evaluation
 - **Weekly Policy Reading** — AI governance and regulation discussions with NTU Law
 
 ---

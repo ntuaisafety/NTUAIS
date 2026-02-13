@@ -5,7 +5,7 @@ site:
   name: "NTUAIS"
   full_name: "National Taiwan University AI Safety"
   contact_email: "ntuaisafety@gmail.com"
-  description: "AI Safety Research and Education"
+  description: "AI Safety Research Community at National Taiwan University"
 
 # Homepage Configuration
 homepage:
@@ -15,9 +15,9 @@ homepage:
     cursor: "_"
     texts:
       - "AI Alignment"
-      - "Interpretability"
+      - "Mechanistic Interpretability"
       - "AI Governance"
-      - "Safe AGI"
+      - "Scalable Oversight"
 
   # Primary CTA Button
   primary_button:

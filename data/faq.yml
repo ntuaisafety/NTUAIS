@@ -5,24 +5,28 @@ section_description: "Your questions, answered."
 items:
   - question: "Who are we?"
     answer: |
-      We are the **National Taiwan University AI Safety Group** (NTUAIS). Since 2024, we've been building a community of researchers, students, and professionals who care about making AI systems safe and beneficial. 2026 marks our **third year** running programs!
+      We are the **National Taiwan University AI Safety Group** (NTUAIS). Since 2024, we've been building a community of researchers, students, and professionals focused on understanding and reducing risks from advanced AI systems. 2026 marks our **third year** running programs.
 
   - question: "What is AI Safety?"
     answer: |
-      AI Safety is the field dedicated to ensuring that advanced AI systems are **aligned with human values** and don't cause unintended harm. As AI becomes more powerful, ensuring it remains beneficial is one of the most important challenges of our time.
+      AI Safety is the field dedicated to ensuring that increasingly powerful AI systems remain **aligned with human values** and don't cause catastrophic harm — whether through misalignment, misuse, or systemic failures.
+
+      Core research areas include **mechanistic interpretability** (understanding what models are actually doing internally), **alignment** (ensuring AI systems pursue intended goals), **scalable oversight** (supervising systems that may become smarter than their supervisors), and **AI governance** (building the institutions and policies needed to manage advanced AI responsibly).
+
+      As AI systems grow more capable, these problems become more urgent. AI safety is widely recognized alongside biosecurity and nuclear risk as one of the most important challenges facing humanity.
 
   - question: "What do we do?"
     answer: |
-      We organize:
-      - **Reading groups** to discuss AI safety blogs, papers, and research
-      - **Study circles** for deep dives into technical topics
-      - **Fellowship programs** following curricula like BlueDot Impact
-      
-      We also help people in Taiwan connect with **international AI safety programs** and opportunities.
+      We run structured programs that cover the AI safety research landscape:
+      - **BlueDot Fellowship** — A 10-week introductory program following the BlueDot Impact curriculum, covering threat models, defence layers, and safety techniques
+      - **Technical Paper Reading** — A 15-week advanced program engaging directly with current research in interpretability, alignment, evaluation, and oversight
+      - **Policy Reading Group** — Weekly discussions on AI governance, regulation, and institutional design, in collaboration with NTU Law
+
+      We also help connect people in Taiwan to **international AI safety programs**, research opportunities, and the broader alignment community.
 
   - question: "Who should join?"
     answer: |
-      Anyone who believes AI safety is important for our future and wants to learn more. You don't need a computer science background — we welcome **students, working professionals, and curious minds from all fields**. Diverse perspectives make our discussions richer.
+      Anyone who takes AI safety seriously and wants to develop real expertise. You don't need a computer science background — many of the hardest problems in AI safety require perspectives from **philosophy, law, policy, cognitive science**, and other fields. What matters is the willingness to engage with technical material and think carefully about difficult problems.
 
   - question: "How can I get involved?"
     answer: |

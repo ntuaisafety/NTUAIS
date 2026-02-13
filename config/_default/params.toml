@@ -63,7 +63,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
     enabled = true
     speed = 50
     cursor = "_"
-    texts = ["AI Alignment", "Interpretability", "AI Governance", "Safe AGI"]
+    texts = ["AI Alignment", "Mechanistic Interpretability", "AI Governance", "Scalable Oversight"]
 
   [homepage.button]
     enable = true

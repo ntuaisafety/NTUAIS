@@ -1,7 +1,7 @@
 hero:
   badge: "About Us"
   headline: "Building Taiwan's AI Safety Community"
-  subheadline: "Since 2024, we've been fostering research, education, and collaboration to ensure AI remains safe and beneficial for humanity."
+  subheadline: "As AI systems grow more capable, ensuring they remain safe and aligned with human values is one of the most pressing challenges of our time. Since 2024, NTUAIS has been bringing together researchers, students, and professionals to study and address these challenges."
   primary_cta:
     text: "Join Discord"
     # URL injected from siteconfig.yml in template
@@ -14,30 +14,30 @@ mission_vision:
   section_heading: "Mission & Vision"
   cards:
     - title: "Our Mission"
-      description: "Making AI safety research and education accessible to everyone in Taiwan through community-driven programs."
+      description: "To build a strong AI safety research and education community in Taiwan — training the next generation of safety researchers and connecting them to the global effort to solve alignment, interpretability, and governance challenges."
       icon_path: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
     - title: "Our Vision"
-      description: "A thriving ecosystem of AI safety researchers, students, and professionals working together to solve alignment challenges."
+      description: "A Taiwan where AI safety is recognized as a critical priority — with a pipeline of informed researchers, policy thinkers, and engineers equipped to contribute to the global challenge of making advanced AI systems safe."
       icon_path: "M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
     - title: "Our Approach"
-      description: "Community-first, research-focused. We combine rigorous technical study with inclusive education and global collaboration."
+      description: "We combine structured curricula — covering technical alignment, mechanistic interpretability, scalable oversight, and AI governance — with community-driven discussion and mentorship from experienced researchers."
       icon_path: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
 
 values:
   section_badge: "Our Values"
   section_heading: "What We Stand For"
   items:
-    - title: "Safety First"
-      description: "Prioritizing the development of AI systems that are safe and beneficial for all humanity."
+    - title: "Safety as a Priority"
+      description: "AI progress is accelerating faster than our ability to ensure it remains safe. We believe safety research deserves the same urgency and resources as capability development."
       icon_path: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-    - title: "Rigor"
-      description: "Approaching AI safety with intellectual honesty, scientific rigor, and evidence-based thinking."
+    - title: "Technical Rigor"
+      description: "We engage directly with primary research — reading papers, reproducing results, and critically evaluating claims. Understanding the real state of the field requires going beyond headlines."
       icon_path: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-    - title: "Collaboration"
-      description: "Working together with the global AI safety community to share knowledge and accelerate progress."
+    - title: "Global Collaboration"
+      description: "AI safety is a global challenge that no single institution can solve. We connect Taiwan's AI safety community to international research networks, organizations like BlueDot Impact, and the broader alignment ecosystem."
       icon_path: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-    - title: "Education"
-      description: "Making AI safety accessible and understandable to students, professionals, and curious minds from all backgrounds."
+    - title: "Accessible Education"
+      description: "AI safety requires diverse perspectives — from ML engineering and philosophy to policy and law. We design our programs so anyone motivated to learn can contribute, regardless of their starting background."
       icon_path: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
 
 get_involved:
