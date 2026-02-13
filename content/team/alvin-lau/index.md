@@ -6,6 +6,7 @@ date: 2026-02-07
 role: "mentor"
 weight: 2
 draft: false
+image: "img/members/alvin.webp"
 social:
   - facebook: "https://facebook.com/chors.debate/"
   - linkedin: "https://www.linkedin.com/in/alvin-lau-0156b9178/"
