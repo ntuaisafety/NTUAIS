@@ -34,7 +34,7 @@ button,
 
 /* Scale SVG logos to appropriate size */
 .logo svg {
-  @apply h-[5rem] w-[5rem];
+  @apply h-[7.5rem] w-[7.5rem];
 }
 
 /* Search */
