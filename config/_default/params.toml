@@ -68,7 +68,9 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   [homepage.button]
     enable = true
     text = "Join Community"
-    url = "https://discord.gg/DeypaQEB"
+    # Note: This URL is duplicated in data/siteconfig.yml for site-wide use
+    # Consider removing this and using siteconfig.yml as single source of truth
+    url = "https://discord.gg/MqYwhbY6tv"
 
   [homepage.secondaryButton]
     enable = true

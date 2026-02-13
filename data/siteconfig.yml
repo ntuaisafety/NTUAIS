@@ -23,7 +23,7 @@ homepage:
   primary_button:
     enable: true
     text: "Join Community"
-    url: "https://discord.gg/DeypaQEB"
+    url: "https://discord.gg/MqYwhbY6tv"
 
   # Secondary CTA Button
   secondary_button:
@@ -33,7 +33,7 @@ homepage:
 
 # Social Media Links
 social:
-  discord: "https://discord.gg/DeypaQEB"
+  discord: "https://discord.gg/MqYwhbY6tv"
   github: "https://github.com/ntuai-safety"
   email: "ntuaisafety@gmail.com"
 

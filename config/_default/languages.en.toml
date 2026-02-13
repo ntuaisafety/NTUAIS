@@ -17,6 +17,7 @@ title = "NTUAIS"
   # image = "img/ntuais-logo.png"  # Uncomment when logo file exists
   headline = "AI Safety Research & Education"
   bio = "We are a student-led group dedicated to researching and promoting safe, beneficial, and aligned Artificial Intelligence."
+  # Note: Discord URL is also defined in data/siteconfig.yml for site-wide use
   links = [
-    { discord = "https://discord.gg/DeypaQEB" },
+    { discord = "https://discord.gg/MqYwhbY6tv" },
   ]

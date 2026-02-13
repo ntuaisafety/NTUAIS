@@ -23,4 +23,4 @@ Our main programs run throughout the year:
 
 ---
 
-*Interested in joining? [Contact us on Discord](https://discord.gg/DeypaQEB)!*
+*Interested in joining? [Contact us on Discord]({{< discord-link >}})!*

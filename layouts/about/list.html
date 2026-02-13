@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ $about := .Site.Data.about }}
+{{ $siteConfig := .Site.Data.siteconfig }}
 
 <main class="content-section">
 
@@ -14,7 +15,7 @@
 
         <div class="flex flex-wrap gap-4 animate-blur-reveal delay-300">
           {{ with .primary_cta }}
-          <a href="{{ .url }}" class="btn-linear btn-linear-primary">
+          <a href="{{ $siteConfig.social.discord }}" class="btn-linear btn-linear-primary">
             {{ .text }}
           </a>
           {{ end }}
@@ -118,24 +119,21 @@
       <span class="section-badge section-badge--green mb-6">{{ .section_badge }}</span>
       <h2 class="section-heading mb-12">{{ .section_heading }}</h2>
 
-      {{ partial "components/cta-cards.html" (dict "ctas" .ctas) }}
+      {{/* Inject Discord URL from site-config for Discord CTA */}}
+      {{ $ctas := .ctas }}
+      {{ $modifiedCtas := slice }}
+      {{ range $ctas }}
+        {{ if eq .title "Join Discord" }}
+          {{ $modifiedCtas = $modifiedCtas | append (merge . (dict "link" $siteConfig.social.discord)) }}
+        {{ else }}
+          {{ $modifiedCtas = $modifiedCtas | append . }}
+        {{ end }}
+      {{ end }}
+
+      {{ partial "components/cta-cards.html" (dict "ctas" $modifiedCtas) }}
     </div>
   </section>
   {{ end }}
-
-  {{/* Section 8: Collaborators (logo wall) */}}
-  <section class="py-16 md:py-20">
-    <div class="max-w-6xl mx-auto px-6 md:px-12">
-      <p class="logo-wall-label mb-8 text-center">{{ i18n "collaborators_label" }}</p>
-
-      <div class="logo-wall">
-        <div class="logo-item">
-          <img src="/img/collaborators/ntu-logo.svg" alt="National Taiwan University" class="logo-img">
-        </div>
-        {{/* Add more collaborators as they become available */}}
-      </div>
-    </div>
-  </section>
 
 </main>
 {{ end }}
