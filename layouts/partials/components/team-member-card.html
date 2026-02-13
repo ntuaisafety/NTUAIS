@@ -38,11 +38,20 @@
         <div class="team-member-social flex flex-wrap gap-3">
             {{ range . }}
             {{ range $platform, $url := . }}
+            {{ if eq $platform "email" }}
+            <a href="{{ $url }}"
+                class="team-social-link team-email-link inline-flex items-center gap-1.5 px-3 py-1.5 bg-neutral-800 rounded-lg hover:bg-primary-600/20 hover:text-primary-400 transition-colors"
+                title="{{ $platform | title }}">
+                {{ partial "icon.html" $platform }}
+                <span class="text-sm">{{ strings.TrimPrefix "mailto:" $url }}</span>
+            </a>
+            {{ else }}
             <a href="{{ $url }}" target="_blank" rel="noopener"
                 class="team-social-link p-2 bg-neutral-800 rounded-lg hover:bg-primary-600/20 hover:text-primary-400 transition-colors"
                 title="{{ $platform | title }}">
                 {{ partial "icon.html" $platform }}
             </a>
+            {{ end }}
             {{ end }}
             {{ end }}
         </div>

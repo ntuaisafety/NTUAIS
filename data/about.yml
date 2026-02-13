@@ -7,7 +7,7 @@ hero:
     # URL injected from siteconfig.yml in template
   secondary_cta:
     text: "View Events"
-    url: "/NTUAIS/events/"
+    url: "events/"
 
 mission_vision:
   section_badge: "What Drives Us"
@@ -55,12 +55,12 @@ get_involved:
       badge: "Programs"
       badge_color: "purple"
       icon_path: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-      link: "/NTUAIS/events/"
+      link: "events/"
 
 team_preview:
   section_badge: "Our Team"
   section_heading: "The People Behind NTUAIS"
   section_description: "Meet some of our organizers who make NTUAIS possible."
   cta_text: "Meet the Full Team"
-  cta_link: "/NTUAIS/team/"
+  cta_link: "team/"
   limit: 4

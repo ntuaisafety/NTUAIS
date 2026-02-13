@@ -20,7 +20,7 @@
           </a>
           {{ end }}
           {{ with .secondary_cta }}
-          <a href="{{ .url }}" class="btn-linear btn-linear-secondary">
+          <a href="{{ .url | relURL }}" class="btn-linear btn-linear-secondary">
             {{ .text }}
           </a>
           {{ end }}
@@ -99,7 +99,7 @@
 
       {{ with $teamPreview.cta_link }}
       <div class="text-center">
-        <a href="{{ . }}" class="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium transition-colors group">
+        <a href="{{ . | relURL }}" class="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium transition-colors group">
           {{ $teamPreview.cta_text | default "Meet the Full Team" }}
           <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />

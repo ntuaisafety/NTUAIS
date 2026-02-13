@@ -48,9 +48,9 @@
       </p>
 
       {{/* CTA */}}
-      <a href="{{ .link }}"
+      <a href="{{ .link | relURL }}"
           class="inline-flex items-center gap-2 text-sm font-medium {{ $textColor }} {{ $hoverTextColor }} transition-colors group/link">
-        Get Started
+        {{ i18n "card_get_started" }}
         <svg class="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor"
             viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />

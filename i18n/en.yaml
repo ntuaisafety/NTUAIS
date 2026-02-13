@@ -50,3 +50,11 @@
 
 - id: events_discord_prompt
   translation: "Join our Discord to stay updated."
+
+# Homepage Sections
+- id: events_badge
+  translation: "Events"
+
+# CTA Text
+- id: card_get_started
+  translation: "Get Started"

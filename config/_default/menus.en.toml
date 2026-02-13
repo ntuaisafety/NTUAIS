@@ -44,6 +44,7 @@
   weight = 20
 
 [[footer]]
-  name = "Contact"
+  pre = "email"
+  name = "ntuaisafety@gmail.com"
   url = "mailto:ntuaisafety@gmail.com"
   weight = 30

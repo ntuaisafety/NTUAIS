@@ -29,7 +29,7 @@ homepage:
   secondary_button:
     enable: true
     text: "Our Blog"
-    url: "/NTUAIS/blog"
+    url: "blog"
 
 # Social Media Links
 social:

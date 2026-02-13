@@ -6,7 +6,7 @@ date: 2026-01-31
 role: "organizer"
 weight: 4
 draft: false
-image: "img/members/avatar-m.png"
+image: "avatar.jpg"
 social:
   - email: "mailto:yuchentsai2026@gmail.com"
   - facebook: "https://www.facebook.com/zen.tsai.37"

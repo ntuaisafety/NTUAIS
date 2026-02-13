@@ -6,7 +6,7 @@ date: 2026-01-31
 role: "organizer"
 weight: 1
 draft: false
-image: "img/members/avatar-m.png"
+image: "avatar.jpg"
 social:
   - email: "mailto:leonardofoohy@gmail.com"
   - linkedin: "https://www.linkedin.com/in/leonardo-fhy/"
