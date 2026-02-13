@@ -35,6 +35,21 @@
   --linear-nav-bg: rgba(247, 250, 249, 0.88);
   --linear-shadow-heavy: rgba(3, 22, 17, 0.14);
   --linear-status-upcoming-bg: rgba(45, 122, 103, 0.16);
+
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+
+  /* Border Radius */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
 }
 
 html.dark {
@@ -63,21 +78,6 @@ html.dark {
   --linear-nav-bg: rgba(8, 9, 10, 0.9);
   --linear-shadow-heavy: rgba(0, 0, 0, 0.5);
   --linear-status-upcoming-bg: rgba(78, 129, 115, 0.25);
-
-  /* Spacing */
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-
-  /* Border Radius */
-  --border-radius-sm: 8px;
-  --border-radius-md: 12px;
-  --border-radius-lg: 16px;
-  --border-radius-xl: 24px;
-
-  /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
 }
 
 /* ============================================
@@ -912,10 +912,6 @@ footer,
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--spacing-md);
-}
-
-.event-card {
-  /* Inherits from .card-base: background, border, radius, padding, transition, hover */
 }
 
 .event-card-content {
