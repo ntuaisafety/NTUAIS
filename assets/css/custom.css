@@ -989,12 +989,11 @@ footer,
   align-items: center;
   gap: 0.5rem;
   opacity: 0.85;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .logo-item:hover {
   opacity: 1;
-  transform: scale(1.05);
 }
 
 .logo-svg {
