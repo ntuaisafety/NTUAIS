@@ -35,6 +35,13 @@
   --linear-nav-bg: rgba(247, 250, 249, 0.88);
   --linear-shadow-heavy: rgba(3, 22, 17, 0.14);
   --linear-status-upcoming-bg: rgba(45, 122, 103, 0.16);
+  --brand-logo-size-desktop: 3rem;
+  --brand-logo-size-mobile: 2.4rem;
+  --brand-logo-max-width-desktop: min(70vw, 11rem);
+  --brand-logo-max-width-mobile: min(70vw, 8.5rem);
+  --brand-header-top-gap: 1.2rem;
+  --brand-header-bottom-gap: 0.95rem;
+  --brand-header-row-padding-y: 0.45rem;
 
   /* Spacing */
   --spacing-sm: 0.5rem;
@@ -370,19 +377,31 @@ header {
   border-bottom: 1px solid var(--linear-header-border) !important;
 }
 
-/* Keep wide SVG brand marks readable in the top navigation */
-header .main-menu .logo {
+/* Add a bit more breathing room above the top nav row */
+#the-top + .main-menu {
+  margin-top: var(--brand-header-top-gap) !important;
+  margin-bottom: var(--brand-header-bottom-gap) !important;
+  padding-top: var(--brand-header-row-padding-y) !important;
+  padding-bottom: var(--brand-header-row-padding-y) !important;
+}
+
+/* Unified brand logo sizing across all header templates and pages */
+.main-menu .logo {
   display: inline-flex;
   align-items: center;
   line-height: 0;
+  height: var(--brand-logo-size-desktop) !important;
+  width: auto !important;
+  max-width: var(--brand-logo-max-width-desktop) !important;
 }
 
-header .main-menu .logo svg {
+.main-menu .logo svg,
+.main-menu img.logo {
   display: block;
-  height: 8.55rem !important;
+  height: var(--brand-logo-size-desktop) !important;
   width: auto !important;
-  max-height: 8.55rem !important;
-  max-width: min(70vw, 30rem) !important;
+  max-height: var(--brand-logo-size-desktop) !important;
+  max-width: var(--brand-logo-max-width-desktop) !important;
 }
 
 /* ============================================
@@ -412,6 +431,13 @@ header .main-menu .logo svg {
    Responsive
    ============================================ */
 @media (max-width: 768px) {
+  #the-top + .main-menu {
+    margin-top: calc(var(--brand-header-top-gap) * 0.75) !important;
+    margin-bottom: calc(var(--brand-header-bottom-gap) * 0.75) !important;
+    padding-top: calc(var(--brand-header-row-padding-y) * 0.75) !important;
+    padding-bottom: calc(var(--brand-header-row-padding-y) * 0.75) !important;
+  }
+
   .hero-linear {
     min-height: clamp(30rem, 78vh, 40rem);
     align-items: flex-start;
@@ -440,10 +466,17 @@ header .main-menu .logo svg {
     padding: 0 20px !important;
   }
 
-  header .main-menu .logo svg {
-    height: 6.75rem !important;
-    max-height: 6.75rem !important;
-    max-width: 21rem !important;
+  .main-menu .logo {
+    height: var(--brand-logo-size-mobile) !important;
+    max-width: var(--brand-logo-max-width-mobile) !important;
+  }
+
+  .main-menu .logo svg,
+  .main-menu img.logo {
+    height: var(--brand-logo-size-mobile) !important;
+    width: auto !important;
+    max-height: var(--brand-logo-size-mobile) !important;
+    max-width: var(--brand-logo-max-width-mobile) !important;
   }
 }
 
@@ -1041,27 +1074,4 @@ footer,
 .logo-placeholder {
   font-size: 0.75rem;
   color: var(--linear-muted);
-}
-
-/* Force logo size - override all theme styles */
-.main-menu .logo {
-  height: 8.55rem !important;
-  width: 8.55rem !important;
-}
-
-.main-menu .logo svg {
-  height: 8.55rem !important;
-  width: 8.55rem !important;
-}
-
-@media (max-width: 768px) {
-  .main-menu .logo {
-    height: 6.75rem !important;
-    width: 6.75rem !important;
-  }
-  
-  .main-menu .logo svg {
-    height: 6.75rem !important;
-    width: 6.75rem !important;
-  }
 }
