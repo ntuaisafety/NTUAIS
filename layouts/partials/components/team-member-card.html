@@ -2,7 +2,7 @@
 {{/* Expects a Hugo page object with: Title, Description, Params.social, Resources (avatar) or Params.image */}}
 {{ $member := . }}
 
-<article class="team-member-row">
+<article class="card-base team-member-row">
     {{/* Profile Picture */}}
     <div class="team-member-avatar">
         {{ $avatar := $member.Resources.GetMatch "avatar.*" }}

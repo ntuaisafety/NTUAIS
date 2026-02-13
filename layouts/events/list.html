@@ -26,7 +26,7 @@
             <h2 class="section-heading mb-6">{{ i18n "events_upcoming" }}</h2>
             <div class="events-grid">
                 {{ range $upcoming.ByDate.Reverse }}
-                <article class="event-card event-card--upcoming">
+                <article class="card-base event-card event-card--upcoming">
                     <div class="event-card-content">
                         <span class="event-badge event-badge--upcoming">Upcoming</span>
                         <h3 class="event-card-title">
@@ -49,7 +49,7 @@
             <h2 class="section-heading mb-6">{{ i18n "events_past" }}</h2>
             <div class="events-grid">
                 {{ range $past.ByDate.Reverse }}
-                <article class="event-card event-card--past">
+                <article class="card-base event-card event-card--past">
                     <div class="event-card-content">
                         <span class="event-badge event-badge--past">Completed</span>
                         <h3 class="event-card-title">

@@ -762,6 +762,22 @@ footer,
 }
 
 /* ============================================
+   CARD BASE - Shared Card Styling
+   ============================================ */
+.card-base {
+  background-color: var(--linear-bg-card);
+  border: 1px solid var(--linear-border-subtle);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.card-base:hover {
+  border-color: var(--linear-border-strong);
+  transform: translateY(-2px);
+}
+
+/* ============================================
    TEAM PAGE - Horizontal Row Layout
    ============================================ */
 .team-list {
@@ -771,18 +787,9 @@ footer,
 }
 
 .team-member-row {
+  /* Inherits from .card-base: background, border, radius, padding, transition, hover */
   display: flex;
   gap: 1.5rem;
-  padding: 1.5rem;
-  background-color: var(--linear-bg-card);
-  border: 1px solid var(--linear-border-subtle);
-  border-radius: 16px;
-  transition: all 0.3s ease;
-}
-
-.team-member-row:hover {
-  border-color: var(--linear-border-strong);
-  transform: translateY(-2px);
 }
 
 /* Avatar */
@@ -893,16 +900,7 @@ footer,
 }
 
 .event-card {
-  background-color: var(--linear-bg-card);
-  border: 1px solid var(--linear-border-subtle);
-  border-radius: 16px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.event-card:hover {
-  border-color: var(--linear-border-strong);
-  transform: translateY(-2px);
+  /* Inherits from .card-base: background, border, radius, padding, transition, hover */
 }
 
 .event-card-content {
