@@ -1,8 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getImage } from 'astro:assets';
+import heroBgRaw from '../../assets/backgrounds/hero-background.jpg';
 
 const base = import.meta.env.BASE_URL;
 const discord = 'https://discord.gg/MqYwhbY6tv';
+
+// Resize + convert to WebP. Change width/height here to crop differently.
+const heroBg = await getImage({
+  src: heroBgRaw,
+  width: 5000,
+  height: 500,
+  format: 'webp',
+  quality: 85,
+  fit: 'cover',   // crop to fill the box exactly
+});
 
 const missionCards = [
   {
@@ -73,7 +85,11 @@ const faq = [
 
   <!-- Hero -->
   <section class="about-hero">
-    <div class="container">
+    <!-- <div 
+      class="about-hero-bg"
+      style={`background-image: url('${heroBg.src}')`}
+    ></div>  -->
+    <div class="container" >
       <span class="section-badge">About Us</span>
       <h1>Building Taiwan's AI Safety Community</h1>
       <p>
@@ -195,10 +211,19 @@ const faq = [
 
 <style>
   .about-hero {
+    /* position : relative; */
     padding: 5rem 0 3.5rem;
     border-bottom: 1px solid var(--linear-border-subtle);
   }
 
+  .about-hero-bg {
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+  }
+  
   .about-hero h1 {
     font-size: clamp(1.75rem, 4vw, 3rem);
     font-weight: 700;
