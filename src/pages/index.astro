@@ -1,8 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
+import heroBgRaw from '../assets/backgrounds/hero-background.jpg';
 
 const base = import.meta.env.BASE_URL;
+
+// Resize + convert to WebP. Change width/height here to crop differently.
+const heroBg = await getImage({
+  src: heroBgRaw,
+  width: 1920,
+  height: 1080,
+  format: 'webp',
+  quality: 85,
+  fit: 'cover',   // crop to fill the box exactly
+});
 
 // Get upcoming events (date >= today)
 const allEvents = await getCollection('events');
@@ -16,23 +28,28 @@ const upcomingEvents = allEvents
 <BaseLayout title="Home" description="NTU AI Safety — a student community exploring AI alignment, interpretability, and governance.">
 
   <!-- Hero -->
-  <section class="hero-linear">
-    <p class="section-badge section-badge--green">NTU AI Safety</p>
-    <h1>
-      Shaping the Future of<br />
-      <span class="hero-accent">AI Safety</span>
-    </h1>
-    <p>
-      We are a student-led community at National Taiwan University exploring AI alignment,
-      mechanistic interpretability, and AI governance.
-    </p>
-    <div class="hero-cta-group">
-      <a href="https://discord.gg/MqYwhbY6tv" class="btn-linear btn-linear-primary" target="_blank" rel="noopener noreferrer">
-        Join Community
-      </a>
-      <a href={`${base}events/`} class="btn-linear btn-linear-secondary">
-        View Events
-      </a>
+  <section class="hero-linear" aria-label="Hero">
+    <!-- Image layer: adjust opacity here ↓ (0 = invisible, 1 = full) -->
+    <div class="hero-bg" style={`background-image: url('${heroBg.src}')`} aria-hidden="true"></div>
+    <div class="hero-linear-overlay" aria-hidden="true"></div>
+    <div class="hero-linear-inner">
+      <p class="section-badge section-badge--green">NTU AI Safety</p>
+      <h1>
+        Shaping the Future of<br />
+        <span class="hero-accent">AI Safety</span>
+      </h1>
+      <p>
+        We are a student-led community at National Taiwan University exploring AI alignment,
+        mechanistic interpretability, and AI governance.
+      </p>
+      <div class="hero-cta-group">
+        <a href="https://discord.gg/MqYwhbY6tv" class="btn-linear btn-linear-primary" target="_blank" rel="noopener noreferrer">
+          Join Community
+        </a>
+        <a href={`${base}events/`} class="btn-linear btn-linear-secondary">
+          View Events
+        </a>
+      </div>
     </div>
   </section>
 
@@ -102,6 +119,19 @@ const upcomingEvents = allEvents
 </BaseLayout>
 
 <style>
+  /* ── Hero background image layer ──────────────────────────────
+     Change opacity below to control how visible the image is.
+     0.0 = fully hidden   0.15 = subtle   0.5 = half   1.0 = full
+  ──────────────────────────────────────────────────────────── */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+  }
+
   .hero-accent {
     color: var(--linear-accent-green);
   }
