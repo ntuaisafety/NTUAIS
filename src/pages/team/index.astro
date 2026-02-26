@@ -1,0 +1,262 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import defaultAvatar from '../../assets/members/default.png';
+
+// Eagerly load all co-located team avatars
+const avatarGlob = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/content/team/*/avatar.*',
+  { eager: true }
+);
+
+const allMembers = await getCollection('team', ({ data }) => !data.draft);
+
+const organizers = allMembers
+  .filter(m => m.data.role === 'organizer')
+  .sort((a, b) => (a.data.weight ?? 99) - (b.data.weight ?? 99));
+
+const mentors = allMembers
+  .filter(m => m.data.role === 'mentor')
+  .sort((a, b) => (a.data.weight ?? 99) - (b.data.weight ?? 99));
+
+// Resolve avatar for a member: look for co-located file in glob, else default
+function getAvatar(member: (typeof allMembers)[number]) {
+  const dir = member.id.split('/')[0];
+  const entry = Object.entries(avatarGlob).find(([path]) => path.includes(`/${dir}/`));
+  return entry ? entry[1].default : defaultAvatar;
+}
+
+// Parse social links from [{platform: url}, ...] array
+function getSocialLinks(social: Record<string, string>[]) {
+  const icons: Record<string, string> = {
+    email: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+    linkedin: 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z',
+    github: 'M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22',
+    facebook: 'M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z',
+    link: 'M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71',
+    threads: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z',
+  };
+  return social.map(obj => {
+    const [platform, href] = Object.entries(obj)[0];
+    return { platform, href, icon: icons[platform] ?? icons.link };
+  });
+}
+---
+
+<BaseLayout title="Team" description="Meet the organizers and mentors behind NTUAIS.">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-badge">Our Team</span>
+      <h1>The People Behind NTUAIS</h1>
+      <p>Researchers, students, and practitioners united by a commitment to making AI safe.</p>
+    </div>
+  </section>
+
+  <!-- Organizers -->
+  <section class="team-section">
+    <div class="container">
+      <h2 class="team-group-title">
+        <span class="section-badge section-badge--green">Organizers</span>
+      </h2>
+      <div class="team-grid">
+        {organizers.map(member => {
+          const links = getSocialLinks(member.data.social ?? []);
+          return (
+            <div class="member-card card-linear">
+              <div class="member-avatar-wrap">
+                <Image
+                  src={getAvatar(member)}
+                  alt={member.data.title}
+                  width={96}
+                  height={96}
+                  class="member-avatar"
+                />
+              </div>
+              <div class="member-info">
+                <h3>{member.data.title}</h3>
+                {member.data.description && <p class="member-role">{member.data.description}</p>}
+                {member.data.summary && <p class="member-summary">{member.data.summary}</p>}
+                {links.length > 0 && (
+                  <div class="member-social">
+                    {links.map(link => (
+                      <a href={link.href} class="social-link" aria-label={link.platform} target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" width="16" height="16">
+                          <path stroke-linecap="round" stroke-linejoin="round" d={link.icon} />
+                        </svg>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Mentors -->
+  {mentors.length > 0 && (
+    <section class="team-section team-section--alt">
+      <div class="container">
+        <h2 class="team-group-title">
+          <span class="section-badge section-badge--blue">Mentors</span>
+        </h2>
+        <div class="team-grid">
+          {mentors.map(member => {
+            const links = getSocialLinks(member.data.social ?? []);
+            return (
+              <div class="member-card card-linear">
+                <div class="member-avatar-wrap">
+                  <Image
+                    src={getAvatar(member)}
+                    alt={member.data.title}
+                    width={96}
+                    height={96}
+                    class="member-avatar"
+                  />
+                </div>
+                <div class="member-info">
+                  <h3>{member.data.title}</h3>
+                  {member.data.description && <p class="member-role">{member.data.description}</p>}
+                  {member.data.summary && <p class="member-summary">{member.data.summary}</p>}
+                  {links.length > 0 && (
+                    <div class="member-social">
+                      {links.map(link => (
+                        <a href={link.href} class="social-link" aria-label={link.platform} target="_blank" rel="noopener noreferrer">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" d={link.icon} />
+                          </svg>
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding: 4rem 0 2.5rem;
+    border-bottom: 1px solid var(--linear-border-subtle);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--linear-text-bright);
+    margin: 0.75rem 0 0.5rem;
+  }
+
+  .page-hero p {
+    color: var(--linear-subtext);
+    font-size: 1.05rem;
+    max-width: 560px;
+  }
+
+  .team-section {
+    padding: 3.5rem 0;
+  }
+
+  .team-section--alt {
+    background: var(--linear-overlay-soft);
+  }
+
+  .team-group-title {
+    margin-bottom: 1.75rem;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .member-card {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .member-avatar-wrap {
+    flex-shrink: 0;
+  }
+
+  .member-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--linear-border-subtle);
+  }
+
+  .member-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    min-width: 0;
+  }
+
+  .member-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--linear-text-bright);
+  }
+
+  .member-role {
+    font-size: 0.8rem;
+    color: var(--linear-accent-green);
+    font-weight: 500;
+  }
+
+  .member-summary {
+    font-size: 0.8rem;
+    color: var(--linear-subtext);
+    line-height: 1.55;
+    margin-top: 0.2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .member-social {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--border-radius-sm);
+    background: var(--linear-overlay-soft);
+    border: 1px solid var(--linear-border-subtle);
+    color: var(--linear-muted);
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+
+  .social-link:hover {
+    color: var(--linear-text);
+    background: var(--linear-overlay-medium);
+  }
+
+  @media (max-width: 480px) {
+    .member-card {
+      flex-direction: column;
+    }
+  }
+</style>

@@ -20,6 +20,15 @@ const base = import.meta.env.BASE_URL;
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <title>{title} | NTUAIS</title>
+    <style set:html={`
+      @font-face {
+        font-family: 'ProFont IIx Nerd Font';
+        src: url('${base}fonts/ProFontIIxNerdFontMono-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+    `} />
   </head>
   <body>
     <Header />

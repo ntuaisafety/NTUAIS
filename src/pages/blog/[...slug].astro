@@ -1,0 +1,197 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={post.data.title} description={post.data.summary}>
+
+  <article class="post-page">
+    <header class="post-header">
+      <div class="container">
+        <a href={`${base}blog/`} class="back-link">← Blog</a>
+        <div class="post-meta">
+          <time datetime={post.data.date.toISOString()}>
+            {post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+          </time>
+          {post.data.tags.map(tag => <span class="tag">{tag}</span>)}
+        </div>
+        <h1>{post.data.title}</h1>
+        {post.data.summary && <p class="post-lead">{post.data.summary}</p>}
+      </div>
+    </header>
+
+    <div class="post-body container">
+      <Content />
+    </div>
+
+    <footer class="post-footer container">
+      <a href={`${base}blog/`} class="btn-linear btn-linear-secondary">← Back to Blog</a>
+    </footer>
+  </article>
+
+</BaseLayout>
+
+<style>
+  .post-page {
+    padding-bottom: 5rem;
+  }
+
+  .post-header {
+    padding: 3rem 0 2.5rem;
+    border-bottom: 1px solid var(--linear-border-subtle);
+    margin-bottom: 3rem;
+  }
+
+  .back-link {
+    font-size: 0.875rem;
+    color: var(--linear-muted);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    transition: color var(--transition-fast);
+  }
+
+  .back-link:hover {
+    color: var(--linear-text);
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .post-meta time {
+    font-size: 0.85rem;
+    color: var(--linear-muted);
+    font-weight: 500;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: var(--linear-overlay-soft);
+    border: 1px solid var(--linear-border-subtle);
+    color: var(--linear-subtext);
+  }
+
+  .post-header h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--linear-text-bright);
+    line-height: 1.2;
+    max-width: 760px;
+  }
+
+  .post-lead {
+    margin-top: 0.75rem;
+    font-size: 1.05rem;
+    color: var(--linear-subtext);
+    max-width: 660px;
+    line-height: 1.65;
+  }
+
+  /* Prose styles for rendered Markdown */
+  .post-body {
+    max-width: 760px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--linear-text);
+  }
+
+  .post-body :global(h2) {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--linear-text-bright);
+    margin: 2.5rem 0 0.75rem;
+  }
+
+  .post-body :global(h3) {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--linear-text-bright);
+    margin: 2rem 0 0.5rem;
+  }
+
+  .post-body :global(p) {
+    margin-bottom: 1.25rem;
+    color: var(--linear-text);
+  }
+
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    margin: 0 0 1.25rem 1.5rem;
+  }
+
+  .post-body :global(li) {
+    margin-bottom: 0.4rem;
+    color: var(--linear-text);
+  }
+
+  .post-body :global(a) {
+    color: var(--linear-accent-green);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .post-body :global(blockquote) {
+    border-left: 3px solid var(--linear-accent-green);
+    padding: 0.5rem 0 0.5rem 1.25rem;
+    margin: 1.5rem 0;
+    color: var(--linear-subtext);
+    font-style: italic;
+  }
+
+  .post-body :global(code) {
+    font-size: 0.875em;
+    background: var(--linear-overlay-soft);
+    border: 1px solid var(--linear-border-subtle);
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+  }
+
+  .post-body :global(pre) {
+    background: var(--linear-overlay-strong);
+    border: 1px solid var(--linear-border-subtle);
+    border-radius: var(--border-radius-md);
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .post-body :global(pre code) {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .post-body :global(hr) {
+    border: none;
+    border-top: 1px solid var(--linear-border-subtle);
+    margin: 2.5rem 0;
+  }
+
+  .post-footer {
+    max-width: 760px;
+    padding-top: 3rem;
+  }
+</style>

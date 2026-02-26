@@ -5,10 +5,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+
 /* ============================================
    CSS Variables
    ============================================ */
 :root {
+  --font-title: 'ProFont IIx Nerd Font', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --linear-bg: #F7FAF9;
   --linear-bg-card: rgba(255, 255, 255, 0.94);
   --linear-text: #12322B;
@@ -61,10 +64,15 @@
 }
 
 html {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   background-color: var(--linear-bg);
   color: var(--linear-text);
   scroll-behavior: smooth;
+}
+
+/* Big titles use ProFont Nerd Font; body text stays Inter */
+h1, h2, h3 {
+  font-family: var(--font-title);
 }
 
 body {
