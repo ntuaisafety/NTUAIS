@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { getImage } from 'astro:assets';
+import { getImage, Image } from 'astro:assets';
 import heroBgRaw from '../assets/backgrounds/hero-background.jpg';
+import ntuLogo from '../assets/members/ntu_logo.png';
+import aicoeLogo from '../assets/members/AICoE_logo.png';
+import pathfinderLogo from '../assets/members/pathfinder_logo.webp';
 
 const base = import.meta.env.BASE_URL;
 
@@ -15,6 +18,12 @@ const heroBg = await getImage({
   quality: 85,
   fit: 'cover',   // crop to fill the box exactly
 });
+
+const collaborators = [
+  { name: 'National Taiwan University', logo: ntuLogo, url: 'https://www.ntu.edu.tw/' },
+  { name: 'AICoE', logo: aicoeLogo, url: 'https://www.aicoe.org/' },
+  { name: 'Pathfinder', logo: pathfinderLogo, url: 'https://pathfinderlab.ai/' },
+];
 
 // Get upcoming events (date >= today)
 const allEvents = await getCollection('events');
@@ -113,6 +122,20 @@ const upcomingEvents = allEvents
           <span class="stat-number">2+</span>
           <span class="stat-label">Years Running</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaborators -->
+  <section class="section-collaborators">
+    <div class="container">
+      <p class="collab-label">Collaborated with</p>
+      <div class="collab-logos">
+        {collaborators.map(c => (
+          <a href={c.url} class="collab-item" target="_blank" rel="noopener noreferrer" aria-label={c.name}>
+            <Image src={c.logo} alt={c.name} height={48} width={120} class="collab-logo" />
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -247,6 +270,47 @@ const upcomingEvents = allEvents
   .stat-label {
     font-size: 0.875rem;
     color: var(--linear-subtext);
+  }
+
+  /* Collaborators */
+  .section-collaborators {
+    padding: 3rem 0;
+    border-top: 1px solid var(--linear-border-subtle);
+  }
+
+  .collab-label {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--linear-muted);
+    margin-bottom: 1.75rem;
+  }
+
+  .collab-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .collab-item {
+    display: flex;
+    align-items: center;
+    opacity: 0.55;
+    transition: opacity var(--transition-fast);
+  }
+
+  .collab-item:hover {
+    opacity: 1;
+  }
+
+  .collab-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
   }
 
   @media (max-width: 768px) {
