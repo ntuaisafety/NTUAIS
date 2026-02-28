@@ -1,0 +1,102 @@
+---
+import logoSrc from '../assets/branding/ntuais-logo.png?url';
+
+const base = import.meta.env.BASE_URL;
+
+const navLinks = [
+  { label: 'About', href: 'about/' },
+  { label: 'Events', href: 'events/' },
+  { label: 'Blog', href: 'blog/' },
+  { label: 'Team', href: 'team/' },
+];
+---
+
+<header class="site-header">
+  <div class="header-inner container">
+    <a href={base} class="site-logo">
+      <img src={logoSrc} alt="NTUAIS" width="250" height="250" />
+      <!-- <span>NTUAIS</span> -->
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      {navLinks.map(link => (
+        <a href={`${base}${link.href}`} class="nav-link">{link.label}</a>
+      ))}
+    </nav>
+
+    <a
+      href="https://discord.gg/MqYwhbY6tv"
+      class="btn-linear btn-linear-primary header-cta"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Join Discord
+    </a>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--linear-header-bg);
+    border-bottom: 1px solid var(--linear-header-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 64px;
+  }
+
+  .site-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--linear-text-bright);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .site-logo:hover {
+    color: var(--linear-text-bright);
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex: 1;
+  }
+
+  .nav-link {
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--linear-subtext);
+    text-decoration: none;
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+
+  .nav-link:hover {
+    color: var(--linear-text);
+    background: var(--linear-overlay-soft);
+  }
+
+  .header-cta {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .site-nav {
+      display: none;
+    }
+  }
+</style>

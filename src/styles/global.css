@@ -1,0 +1,255 @@
+/* ============================================
+   NTUAIS Global Styles — ported from Hugo custom.css
+   Linear-inspired design system
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+/* ============================================
+   CSS Variables
+   ============================================ */
+:root {
+  --font-title: 'ProFont IIx Nerd Font', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --linear-bg: #F7FAF9;
+  --linear-bg-card: rgba(255, 255, 255, 0.94);
+  --linear-text: #12322B;
+  --linear-text-bright: #0A221D;
+  --linear-subtext: #4B6A62;
+  --linear-muted: #738981;
+  --linear-button-bg: #165343;
+  --linear-button-text: #F5FCFA;
+  --linear-glow-blue: rgba(89, 148, 134, 0.2);
+  --linear-glow-purple: rgba(47, 105, 92, 0.12);
+  --linear-accent-white: #e5e5e5;
+  --linear-accent-blue: #1F6D5B;
+  --linear-accent-green: #2D7A67;
+  --linear-accent-yellow: #A98647;
+  --linear-accent-purple: #4E8173;
+  --linear-link-hover: #165343;
+  --linear-overlay-soft: rgba(22, 83, 67, 0.06);
+  --linear-overlay-medium: rgba(22, 83, 67, 0.1);
+  --linear-overlay-strong: rgba(22, 83, 67, 0.16);
+  --linear-border-subtle: rgba(22, 83, 67, 0.14);
+  --linear-border-strong: rgba(22, 83, 67, 0.22);
+  --linear-header-bg: rgba(148, 160, 144, 0.838);
+  --linear-header-border: rgba(22, 83, 67, 0.12);
+  --linear-nav-bg: rgba(247, 250, 249, 0.88);
+  --linear-shadow-heavy: rgba(3, 22, 17, 0.14);
+  --linear-status-upcoming-bg: rgba(45, 122, 103, 0.16);
+
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+
+  /* Border Radius */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* ============================================
+   Base Reset & Defaults
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  background-color: var(--linear-bg);
+  color: var(--linear-text);
+  scroll-behavior: smooth;
+}
+
+/* Big titles use ProFont Nerd Font; body text stays Inter */
+h1, h2, h3 {
+  font-family: var(--font-title);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+main {
+  flex: 1;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--linear-accent-blue);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--linear-link-hover);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn-linear {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--border-radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  text-decoration: none;
+}
+
+.btn-linear-primary {
+  background: var(--linear-button-bg);
+  color: var(--linear-button-text);
+}
+
+.btn-linear-primary:hover {
+  background: var(--linear-accent-green);
+  color: var(--linear-button-text);
+}
+
+.btn-linear-secondary {
+  background: var(--linear-overlay-soft);
+  color: var(--linear-text);
+  border: 1px solid var(--linear-border-subtle);
+}
+
+.btn-linear-secondary:hover {
+  background: var(--linear-overlay-medium);
+}
+
+/* ============================================
+   Section Badges
+   ============================================ */
+.section-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--linear-overlay-soft);
+  color: var(--linear-subtext);
+  border: 1px solid var(--linear-border-subtle);
+}
+
+.section-badge--green {
+  background: var(--linear-status-upcoming-bg);
+  color: var(--linear-accent-green);
+  border-color: rgba(45, 122, 103, 0.3);
+}
+
+.section-badge--blue {
+  background: rgba(31, 109, 91, 0.12);
+  color: var(--linear-accent-blue);
+  border-color: rgba(31, 109, 91, 0.25);
+}
+
+/* ============================================
+   Hero
+   ============================================ */
+.hero-linear {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh; /* dynamic viewport: better on mobile when browser UI shows/hides */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1.5rem 4rem;
+}
+
+.hero-title {
+  color: var(--linear-accent-white);
+}
+
+.hero-accent {
+  color: var(--linear-accent-white);
+}
+
+.hero-linear p.hero-description {
+  color: var(--linear-accent-white);
+}
+
+.hero-linear-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    /* rgba(247, 250, 249, 0.85) 0%, */
+    rgba(7, 7, 7, 0.153) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-linear-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-linear h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--linear-text-bright);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.hero-linear p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--linear-subtext);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* ============================================
+   Container
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ============================================
+   Cards
+   ============================================ */
+.card-linear {
+  background: var(--linear-bg-card);
+  border: 1px solid var(--linear-border-subtle);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  transition: box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.card-linear:hover {
+  box-shadow: 0 8px 32px var(--linear-shadow-heavy);
+  border-color: var(--linear-border-strong);
+}

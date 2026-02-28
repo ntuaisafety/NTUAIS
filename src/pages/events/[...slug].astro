@@ -1,0 +1,223 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const events = await getCollection('events', ({ data }) => !data.draft);
+  return events.map(event => ({
+    params: { slug: event.slug },
+    props: { event },
+  }));
+}
+
+const { event } = Astro.props;
+const { Content } = await event.render();
+const base = import.meta.env.BASE_URL;
+
+const isPast = event.data.date < new Date();
+---
+
+<BaseLayout title={event.data.title} description={event.data.description}>
+
+  <article class="event-page">
+    <header class="event-header">
+      <div class="container">
+        <a href={`${base}events/`} class="back-link">← Events</a>
+
+        <div class="event-meta">
+          <span class={`section-badge section-badge--${event.data.badge_color ?? 'green'}`}>
+            {event.data.badge ?? 'Event'}
+          </span>
+          <span class={`status-pill ${isPast ? 'status-pill--past' : 'status-pill--upcoming'}`}>
+            {isPast ? 'Past' : 'Upcoming'}
+          </span>
+        </div>
+
+        <h1>{event.data.title}</h1>
+        <p class="event-lead">{event.data.description}</p>
+
+        <div class="event-date-row">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" width="16" height="16">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <time datetime={event.data.date.toISOString()}>
+            {event.data.date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
+          </time>
+        </div>
+
+        {event.data.tags.length > 0 && (
+          <div class="event-tags">
+            {event.data.tags.map(tag => <span class="tag">{tag}</span>)}
+          </div>
+        )}
+      </div>
+    </header>
+
+    <div class="event-body container">
+      <Content />
+    </div>
+
+    <footer class="event-footer container">
+      <a href={`${base}events/`} class="btn-linear btn-linear-secondary">← Back to Events</a>
+    </footer>
+  </article>
+
+</BaseLayout>
+
+<style>
+  .event-page {
+    padding-bottom: 5rem;
+  }
+
+  .event-header {
+    padding: 3rem 0 2.5rem;
+    border-bottom: 1px solid var(--linear-border-subtle);
+    margin-bottom: 3rem;
+  }
+
+  .back-link {
+    font-size: 0.875rem;
+    color: var(--linear-muted);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    transition: color var(--transition-fast);
+  }
+
+  .back-link:hover {
+    color: var(--linear-text);
+  }
+
+  .event-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .status-pill {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid;
+  }
+
+  .status-pill--upcoming {
+    background: var(--linear-status-upcoming-bg);
+    color: var(--linear-accent-green);
+    border-color: rgba(45, 122, 103, 0.3);
+  }
+
+  .status-pill--past {
+    background: var(--linear-overlay-soft);
+    color: var(--linear-muted);
+    border-color: var(--linear-border-subtle);
+  }
+
+  .event-header h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--linear-text-bright);
+    line-height: 1.2;
+    max-width: 760px;
+    margin-bottom: 0.75rem;
+  }
+
+  .event-lead {
+    font-size: 1.05rem;
+    color: var(--linear-subtext);
+    max-width: 660px;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+
+  .event-date-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--linear-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .event-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: var(--linear-overlay-soft);
+    border: 1px solid var(--linear-border-subtle);
+    color: var(--linear-subtext);
+  }
+
+  /* Prose */
+  .event-body {
+    max-width: 760px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--linear-text);
+  }
+
+  .event-body :global(h2) {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--linear-text-bright);
+    margin: 2.5rem 0 0.75rem;
+  }
+
+  .event-body :global(h3) {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--linear-text-bright);
+    margin: 2rem 0 0.5rem;
+  }
+
+  .event-body :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .event-body :global(ul),
+  .event-body :global(ol) {
+    margin: 0 0 1.25rem 1.5rem;
+  }
+
+  .event-body :global(li) {
+    margin-bottom: 0.4rem;
+  }
+
+  .event-body :global(a) {
+    color: var(--linear-accent-green);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .event-body :global(strong) {
+    font-weight: 600;
+    color: var(--linear-text-bright);
+  }
+
+  .event-body :global(hr) {
+    border: none;
+    border-top: 1px solid var(--linear-border-subtle);
+    margin: 2.5rem 0;
+  }
+
+  .event-footer {
+    max-width: 760px;
+    padding-top: 3rem;
+  }
+</style>

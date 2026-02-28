@@ -1,9 +1,15 @@
-# Hugo build output
-/public/
-/resources/_gen/
+.claude/
 
-# Hugo cache
+# Astro build output
+/dist/
+.astro/
+
+# Hugo leftovers (no longer used on this branch)
+/resources/_gen/
 .hugo_build.lock
+
+# Node
+node_modules/
 
 # OS files
 .DS_Store
@@ -18,3 +24,4 @@ Thumbs.db
 # Environment files
 .env
 .env.local
+node_modules

@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
+import heroBgRaw from '../assets/backgrounds/hero-background.jpg';
+
+const base = import.meta.env.BASE_URL;
+
+// Resize + convert to WebP. Change width/height here to crop differently.
+const heroBg = await getImage({
+  src: heroBgRaw,
+  width: 3000,
+  height: 1080,
+  format: 'webp',
+  quality: 85,
+  fit: 'cover',   // crop to fill the box exactly
+});
+
+// Get upcoming events (date >= today)
+const allEvents = await getCollection('events');
+const today = new Date();
+const upcomingEvents = allEvents
+  .filter(e => new Date(e.data.date) >= today)
+  .sort((a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime())
+  .slice(0, 3);
+---
+
+<BaseLayout title="Home" description="NTU AI Safety — a student community exploring AI alignment, interpretability, and governance.">
+
+  <!-- Hero -->
+  <section class="hero-linear" aria-label="Hero">
+    <!-- Image layer: adjust opacity here ↓ (0 = invisible, 1 = full) -->
+    <div class="hero-bg" style={`background-image: url('${heroBg.src}')`} aria-hidden="true"></div>
+    <div class="hero-linear-overlay" aria-hidden="true"></div>
+    <div class="hero-linear-inner">
+      <!-- <p class="section-badge">NTU AI Safety</p> -->
+      <h1>
+        <span class="hero-title">Shaping the Future of</span><br />
+        <span class="hero-accent">AI Safety</span>
+      </h1>
+      <p class="hero-description">
+        We are a student-led community at National Taiwan University exploring AI alignment,
+        mechanistic interpretability, and AI governance.
+      </p>
+      <div class="hero-cta-group">
+        <a href="https://discord.gg/MqYwhbY6tv" class="btn-linear btn-linear-primary" target="_blank" rel="noopener noreferrer">
+          Join Community
+        </a>
+        <!-- <a href={`${base}events/`} class="btn-linear btn-linear-secondary">
+          View Events
+        </a> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  {upcomingEvents.length > 0 && (
+    <section class="section-events">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Upcoming</span>
+          <h2>Programs &amp; Events</h2>
+          <p>Join our reading groups, fellowships, and workshops on AI safety.</p>
+        </div>
+        <div class="events-grid">
+          {upcomingEvents.map(event => (
+            <a href={`${base}events/${event.slug}/`} class="card-linear event-card">
+              <span class={`section-badge section-badge--${event.data.badge_color ?? 'green'}`}>
+                {event.data.badge ?? 'Event'}
+              </span>
+              <h3>{event.data.title}</h3>
+              <p>{event.data.description}</p>
+              <time class="event-date" datetime={event.data.date.toISOString()}>
+                {event.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+              </time>
+            </a>
+          ))}
+        </div>
+        <div class="section-footer">
+          <a href={`${base}events/`} class="btn-linear btn-linear-secondary">All Events →</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Mission Section -->
+  <section class="section-mission">
+    <div class="container section-mission-inner">
+      <div>
+        <span class="section-badge section-badge--blue">Mission</span>
+        <h2>Why AI Safety?</h2>
+        <p>
+          Advanced AI systems may soon surpass human capabilities across many domains.
+          Ensuring they remain aligned with human values is one of the most important
+          technical and governance challenges of our time.
+        </p>
+        <p>
+          NTUAIS brings together students, researchers, and practitioners to study
+          these problems and build the next generation of AI safety talent in Asia.
+        </p>
+      </div>
+      <div class="mission-stats">
+        <div class="stat-card">
+          <span class="stat-number">3+</span>
+          <span class="stat-label">Active Programs</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Community Members</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">2+</span>
+          <span class="stat-label">Years Running</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* Events */
+  .section-events {
+    padding: 4rem 0;
+    background: var(--linear-overlay-soft);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--linear-text-bright);
+    margin: 0.75rem 0 0.5rem;
+  }
+
+  .section-header p {
+    color: var(--linear-subtext);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .event-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--linear-text);
+  }
+
+  .event-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--linear-text-bright);
+  }
+
+  .event-card p {
+    font-size: 0.875rem;
+    color: var(--linear-subtext);
+    flex: 1;
+  }
+
+  .event-date {
+    font-size: 0.8rem;
+    color: var(--linear-muted);
+    font-weight: 500;
+  }
+
+  .section-footer {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  /* Mission */
+  .section-mission {
+    padding: 5rem 0;
+  }
+
+  .section-mission-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .section-mission h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--linear-text-bright);
+    margin: 0.75rem 0 1rem;
+  }
+
+  .section-mission p {
+    color: var(--linear-subtext);
+    margin-bottom: 1rem;
+  }
+
+  .mission-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background: var(--linear-bg-card);
+    border: 1px solid var(--linear-border-subtle);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--linear-accent-green);
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--linear-subtext);
+  }
+
+  @media (max-width: 768px) {
+    .section-mission-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .mission-stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

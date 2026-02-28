@@ -2,125 +2,85 @@
 
 Official website for **NTUAIS** (National Taiwan University AI Safety Group).
 
-Built with [Hugo](https://gohugo.io/) (Extended) and the [Blowfish](https://blowfish.page/) theme.
+> **Branch:** `astro-migration` — evaluating Astro as a Hugo replacement.
+> The Hugo-based site lives on `main`.
 
 Live site: https://ntuaisafety.github.io/NTUAIS/
 
+## Tech Stack
+
+- [Astro](https://astro.build/) v5 (static output)
+- Vanilla CSS (Linear-inspired design system in `src/styles/global.css`)
+- Astro Content Collections for events
+- GitHub Pages deployment via GitHub Actions
+
 ## Prerequisites
 
-- **Hugo Extended** >= 0.154.5 ([install guide](https://gohugo.io/installation/))
-
-macOS:
-
-```bash
-brew install hugo
-```
-
-Linux:
-
-```bash
-sudo snap install hugo
-```
-
-Verify:
-
-```bash
-hugo version   # Must show "extended"
-```
+- Node.js >= 18
+- npm >= 9
 
 ## Development
 
 ```bash
-hugo server -D          # Start dev server (includes drafts)
+npm install
+npm run dev        # http://localhost:4321/NTUAIS/
 ```
-
-Open http://localhost:1313/NTUAIS/
 
 ### Build for production
 
 ```bash
-hugo --minify           # Output to ./public/
+npm run build      # Output to ./dist/
+npm run preview    # Preview the production build locally
 ```
 
 ## Project Structure
 
 ```
-├── archetypes/            # Content templates (blog.md, team.md)
-├── assets/
-│   ├── css/custom.css     # Design system (Linear-inspired, ~1000 lines)
-│   └── img/branding/      # SVG logos
-├── config/_default/       # Hugo configuration
-│   ├── hugo.toml          # Site settings, base URL, taxonomies
-│   ├── params.toml        # Theme parameters, homepage layout
-│   ├── languages.en.toml  # Language & author settings
-│   ├── menus.en.toml      # Navigation menus
-│   └── markup.toml        # Markdown renderer, math support
-├── content/
-│   ├── blog/              # Blog posts (Markdown)
-│   ├── events/            # Programs & events
-│   ├── team/              # Team member profiles (page bundles)
-│   ├── resources/         # Learning resources
-│   ├── projects/          # Projects
-│   └── about/             # About page
-├── data/
-│   ├── siteconfig.yml     # Central site config (URLs, social links)
-│   ├── about.yml          # About page sections
-│   ├── faq.yml            # FAQ content
-│   ├── upcoming_programs.yml
-│   └── authors/           # Author profiles (.toml)
-├── i18n/en.yaml           # UI string translations
-├── layouts/
-│   ├── team/list.html     # Team page (organizers/mentors)
-│   ├── events/list.html   # Events page (upcoming/past)
-│   ├── about/list.html    # Data-driven about page
-│   ├── partials/
-│   │   ├── home/background.html   # Homepage hero
-│   │   └── components/            # Reusable partials
-│   └── shortcodes/        # faq.html, discord-link.html
-├── static/img/            # Static images (logos, default avatars)
-├── themes/blowfish/       # Vendored Blowfish theme (v2.98.0)
-└── docs/                  # Development roadmap & guides
+├── src/
+│   ├── assets/
+│   │   ├── branding/          # Logo SVGs (imported by components)
+│   │   └── members/           # Member & collaborator photos
+│   ├── components/
+│   │   ├── Header.astro
+│   │   └── Footer.astro
+│   ├── content/
+│   │   ├── config.ts          # Content collection schemas
+│   │   └── events/            # Event markdown files
+│   ├── layouts/
+│   │   └── BaseLayout.astro   # Base HTML shell
+│   ├── pages/
+│   │   ├── index.astro        # Homepage
+│   │   └── events/index.astro # Events listing
+│   └── styles/
+│       └── global.css         # CSS variables + base styles
+├── public/
+│   └── favicon.svg
+├── content/                   # Hugo markdown (reference, not yet wired to Astro)
+├── data/                      # Hugo YAML data (reference for future Astro pages)
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
 ```
 
 ## Adding Content
 
-### New team member
-
-```bash
-hugo new team/firstname-lastname/index.md
-```
-
-Then add an `avatar.jpg` (max 200KB, <= 800px wide) in the same folder.
-
-### New blog post
-
-```bash
-hugo new blog/my-post-title.md
-```
-
 ### New event
 
-```bash
-hugo new events/event-name.md
+Create a `.md` file in `src/content/events/` with this frontmatter:
+
+```yaml
+---
+title: "Event Title"
+description: "Short description"
+date: 2026-03-01
+badge: "Beginner Friendly"
+badge_color: "green"    # green | blue
+tags: ["fellowship", "introductory"]
+---
 ```
 
 ## Deployment
 
-Pushes to `main` trigger GitHub Actions (`.github/workflows/deploy.yml`) which builds with Hugo and deploys to GitHub Pages.
+Pushes to `main` trigger GitHub Actions → Astro build → GitHub Pages.
 
-**Workflow:** `dev` branch -> PR -> `main` -> auto-deploy
-
-## Navigation
-
-Home -> Events -> Blog -> Resources -> Team -> About
-
-## Documentation
-
-- `docs/website-development-roadmap.md` - Feature roadmap
-- `devlogs/` - Development logs
-
-## Contributing
-
-1. Branch from `dev`
-2. Make changes, test with `hugo server -D`
-3. PR to `main` for deployment
+**Workflow:** feature branch → PR → `main` → auto-deploy
