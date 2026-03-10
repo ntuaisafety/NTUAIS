@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PhotoCarousel from '../components/PhotoCarousel.astro';
 import { getCollection } from 'astro:content';
 import { getImage, Image } from 'astro:assets';
 import { isActiveEvent, startOfToday } from '../lib/eventStatus';
@@ -12,10 +13,10 @@ const base = import.meta.env.BASE_URL;
 // Resize + convert to WebP. Change width/height here to crop differently.
 const heroBg = await getImage({
   src: heroBgRaw,
-  width: 3000,
-  height: 1080,
+  width: 1440,
+  height: 720,
   format: 'webp',
-  quality: 85,
+  quality: 70,
   fit: 'cover',   // crop to fill the box exactly
 });
 
@@ -90,6 +91,9 @@ const upcomingEvents = allEvents
       </div>
     </section>
   )}
+
+  <!-- Photo Gallery Carousel -->
+  <PhotoCarousel />
 
   <!-- Mission Section -->
   <section class="section-mission">
@@ -181,7 +185,7 @@ const upcomingEvents = allEvents
   /* Events */
   .section-events {
     padding: 4rem 0;
-    background: var(--linear-overlay-soft);
+    background: var(--linear-upcoming-bg);
   }
 
   .section-header {
