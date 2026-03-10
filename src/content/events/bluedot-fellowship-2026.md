@@ -1,5 +1,5 @@
 ---
-title: "BlueDot Fellowship 2026: AI Safety Technical Course"
+title: "Fundamental & Policy 2026: AI Safety Technical Course"
 description: "A ten-week guided course on Technical AI Safety, following the BlueDot Impact curriculum."
 summary: "Join us for a deep dive into 'The Alignment Problem'. Learn about the drivers of AI progress, threat pathways, and defence strategies."
 date: 2026-03-09
