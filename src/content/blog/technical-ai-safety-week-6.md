@@ -10,7 +10,7 @@ authors:
   - "zen"
 ---
 
-> **本文翻譯自 BlueDot Impact [AI Safety Fundamentals](https://aisafetyfundamentals.com/) 課程內容。**
+> **本文翻譯自 BlueDot Impact [Technical AI Safety](https://bluedot.org/courses/technical-ai-safety) 課程內容。**
 
 **你正站在 AI 安全技術旅程的起點。**
 
@@ -159,16 +159,12 @@ AI 安全之所以需要更多人投入，一個關鍵原因是：相較於它�
 
     為協助你排出優先順序，可考量你認為哪種方法能有效因應你在第五單元發展出的威脅。
 
-    [**建立免費帳戶以儲存你的答案**](https://bluedot.org/login?register=true&redirect_to=%2Fcourses%2Ftechnical-ai-safety%2F6%2F2)
-
 - **自行研究**
   - 這項方法的成功長什麼樣子？它如何讓 AI 更安全？
   - 這項方法目前的狀態為何？政府、AI 公司或其他行動者是否已在進行？若沒有，為什麼沒有？
   - 有哪些組織在從事這項工作，是你可以貢獻或加入的？
 
     請花約 1 小時進行此練習。
-
-    [**建立免費帳戶以儲存你的答案**](https://bluedot.org/login?register=true&redirect_to=%2Fcourses%2Ftechnical-ai-safety%2F6%2F2)
 
 ### 選讀資源：研究議程
 
@@ -217,8 +213,6 @@ AI 安全之所以需要更多人投入，一個關鍵原因是：相較於它�
     請花約 1 小時完成。
 
     完成後：1）將 Google 文件設為可分享、2）貼到下方、3）在 Slack 分享給你的小組！
-
-    [**建立免費帳號以儲存你的答案**](https://bluedot.org/login?register=true&redirect_to=%2Fcourses%2Ftechnical-ai-safety%2F6%2F3)
 
 
 **選讀資源**

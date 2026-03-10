@@ -10,7 +10,7 @@ authors:
   - "zen"
 ---
 
-> **本文翻譯自 BlueDot Impact [AI Safety Fundamentals](https://aisafetyfundamentals.com/) 課程內容。**
+> **本文翻譯自 BlueDot Impact [Technical AI Safety](https://bluedot.org/courses/technical-ai-safety) 課程內容。**
 
 **AI 是怎麼思考的？**
 
