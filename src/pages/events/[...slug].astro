@@ -190,6 +190,10 @@ function formatDateRange(startDate: Date, endDate?: Date) {
     font-weight: 700;
     color: var(--linear-text-bright);
     margin: 2.5rem 0 0.75rem;
+    background: var(--linear-overlay-soft);
+    border-left: 3px solid var(--linear-accent-green);
+    padding: 0.45rem 0.75rem;
+    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
   }
 
   .event-body :global(h3) {
@@ -197,6 +201,8 @@ function formatDateRange(startDate: Date, endDate?: Date) {
     font-weight: 600;
     color: var(--linear-text-bright);
     margin: 2rem 0 0.5rem;
+    border-left: 2px solid var(--linear-border-strong);
+    padding-left: 0.6rem;
   }
 
   .event-body :global(p) {
@@ -223,10 +229,58 @@ function formatDateRange(startDate: Date, endDate?: Date) {
     color: var(--linear-text-bright);
   }
 
+  .event-body :global(blockquote) {
+    border-left: 3px solid var(--linear-muted);
+    background: var(--linear-overlay-medium);
+    padding: 0.1rem 0.75rem;
+    margin: 1.25rem 0;
+    color: var(--linear-subtext);
+    font-style: italic;
+    display: inline-block;
+    width: 100%;
+  }
+
   .event-body :global(hr) {
     border: none;
     border-top: 1px solid var(--linear-border-subtle);
     margin: 2.5rem 0;
+  }
+
+  /* Schedule / content tables */
+  .event-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin: 1.25rem 0 1.5rem;
+    border: 1px solid var(--linear-border-subtle);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .event-body :global(thead) {
+    background: var(--linear-overlay-soft);
+  }
+
+  .event-body :global(th) {
+    font-weight: 600;
+    color: var(--linear-text-bright);
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--linear-border-subtle);
+  }
+
+  .event-body :global(td) {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--linear-border-subtle);
+    vertical-align: top;
+  }
+
+  .event-body :global(tbody tr:last-child td) {
+    border-bottom: none;
+  }
+
+  .event-body :global(tbody tr:hover) {
+    background: rgba(255, 255, 255, 0.02);
   }
 
   .event-footer {

@@ -344,3 +344,15 @@ const groups = [
     }
   }
 </style>
+
+<script>
+  document.querySelectorAll('details.member-card').forEach(details => {
+    details.addEventListener('toggle', () => {
+      if (details.open) {
+        document.querySelectorAll('details.member-card').forEach(other => {
+          if (other !== details) (other as HTMLDetailsElement).open = false;
+        });
+      }
+    });
+  });
+</script>
