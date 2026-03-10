@@ -185,6 +185,13 @@ function formatDateRange(startDate: Date, endDate?: Date) {
     color: var(--linear-text);
   }
 
+  .event-body :global(h1) {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--linear-text-bright);
+    margin: 2.5rem 0 0.75rem;
+  }
+
   .event-body :global(h2) {
     font-size: 1.35rem;
     font-weight: 700;
@@ -238,6 +245,16 @@ function formatDateRange(startDate: Date, endDate?: Date) {
     font-style: italic;
     display: inline-block;
     width: 100%;
+  }
+
+  .event-body :global(iframe) {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: none;
+    border-radius: var(--border-radius-md);
+    margin: 1.5rem 0;
+    display: block;
   }
 
   .event-body :global(hr) {

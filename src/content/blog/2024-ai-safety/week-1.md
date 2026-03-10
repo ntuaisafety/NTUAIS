@@ -9,8 +9,6 @@ showAuthor: false
 authors: ["ntu-ai-safety"]
 ---
 
-<!-- {{ figure src="week01-group-photo.jpg" caption="第一週大合照" }} -->
-
 ## 本週資訊
 
 - **日期**：2024 年 1 月 4 日
@@ -37,7 +35,16 @@ authors: ["ntu-ai-safety"]
 
 ## Opening：什麼是 AI Safety？What is AI Safety?
 
-{{< youtube pYXy-A4siMw >}}
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/pYXy-A4siMw"
+  title="AI Safety Opening Talk"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+  loading="lazy"
+></iframe>
 
 ## 感謝 Thanks to
 
@@ -113,3 +120,8 @@ authors: ["ntu-ai-safety"]
 1. AI 在過去十年有巨大進展（vision、games、language、science）
 2. 主因是擴大 AI 模型的規模
 3. 只有少數人預知到這件事，且他們也預測將來 AGI 可能威脅人類生存（existential risk）
+
+<figure>
+  <img src="week01-group-photo.png" alt="第一週大合照" />
+  <figcaption>第一週大合照</figcaption>
+</figure>

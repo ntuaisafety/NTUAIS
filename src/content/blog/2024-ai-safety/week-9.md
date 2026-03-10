@@ -20,18 +20,15 @@ authors: ["ntu-ai-safety"]
 
 本週聚焦於 AI 對齊中的重要技術——**強化學習人類反饋（RLHF）**。RLHF 是 ChatGPT 等現代生成模型中使用的重要工具。本次讀書會將快速回顧 RLHF 及其相關技術的概念，探討 RLHF 的現有挑戰與未來改進方向。
 
-::: callout {icon="💡" color="green_bg"}
 **前情提要：邱天異邀請演講（第五週）**
 
 以對齊循環（alignment cycle）框架說明 AI 對齊的範疇，包括 forward alignment、backward alignment，以及對齊目標（RICE）。前沿研究方向包括：**learning from feedback**、**learning under distribution shift**、**assurance**、**governance**。
-:::
 
-::: callout {icon="💡" color="pink_bg"}
 **本週重點**：如何透過 **learning from feedback** 將生成模型與人類偏好對齊？
 - RLHF 概念：什麼是 RLHF？為何需要 RLHF？RLHF 使生成模型更 helpful、harmless、honest。
 - RLHF 的挑戰：包括 sycophancy、deception、不理想的偏好、複雜任務的困難，以及過度或不足審查。
 - 對齊人類偏好的方法：從 RLHF、DPO 到 Constitutional AI。
-:::
+
 
 ## 📚 必讀篇目 Required Readings
 
