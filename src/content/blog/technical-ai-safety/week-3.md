@@ -39,7 +39,6 @@ AI 公司通常會在三個階段進行模型評估：
 這篇文章提出了一系列開放問題，作者稱之為「**評估科學（Science of Evals）**」。
 Marius Hobbhahn · 2024 · 15 min  
 
----
 
 ### [AI models can be dangerous before public deployment](https://metr.org/blog/2025-01-17-ai-models-dangerous-before-public-deployment/?utm_source=bluedot-impact)
 METR 的研究顯示，強大的 AI 模型在公開發布之前就可能造成危害，例如模型被竊取、內部濫用，或在開發過程中追求非預期目標。因此，如果安全評估只在部署前才進行，可能會錯過真正危險開始出現的重要時機。
@@ -110,8 +109,6 @@ Senthooran Rajamanoharan and Neel Nanda · 2025 · 15 min
 ### [AI Lab Watch](https://ailabwatch.org/?utm_source=bluedot-impact)
 這個儀表板提供了對前沿 AI 公司安全實踐的整體概覽。
 Zach Stein-Perlman
-
----
 
 ### [Responsible Scaling Policies](https://metr.org/blog/2023-09-26-rsp/?utm_source=bluedot-impact)
 METR 解釋了怎麼樣的 **Responsible Scaling Policy（RSP）** 才算是一個良好的安全政策。
