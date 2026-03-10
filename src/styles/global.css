@@ -38,6 +38,7 @@
   --linear-nav-bg: rgba(247, 250, 249, 0.88);
   --linear-shadow-heavy: rgba(3, 22, 17, 0.14);
   --linear-status-upcoming-bg: rgba(45, 122, 103, 0.16);
+  --linear-upcoming-bg: rgba(45, 122, 103, 0.16);
 
   /* Spacing */
   --spacing-sm: 0.5rem;

@@ -1,0 +1,209 @@
+---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import captions from '../data/gallery.json';
+
+// Build a filename → caption lookup
+const captionMap: Record<string, string> = Object.fromEntries(
+  captions.map(({ file, caption }) => [file, caption])
+);
+
+// Auto-load every image dropped into src/assets/gallery/
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/gallery/*.{jpg,jpeg,png,webp,avif,gif}',
+  { eager: true }
+);
+
+const images = await Promise.all(
+  Object.entries(modules).map(async ([path, m]) => {
+    const filename = path.split('/').pop()!;
+    const optimized = await getImage({
+      src: m.default,
+      height: 400,
+      format: 'webp',
+      quality: 80,
+      fit: 'cover',
+    });
+    return { src: optimized.src, caption: captionMap[filename] ?? '' };
+  })
+);
+---
+
+{images.length > 0 && (
+<section class="gallery-section">
+  <div class="gallery-header container">
+    <h2>Impact in the Making</h2>
+    <p>From weekly reading groups to workshops, we've spent the past few years building something real: a community of people in Taiwan who take AI Safety seriously, think rigorously, and act. These are the moments that got us here.</p>
+  </div>
+
+  <div class="strip-wrapper">
+    <button class="strip-btn strip-btn--left" id="strip-prev" aria-label="Scroll left">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+
+    <div class="photo-strip" id="photo-strip">
+      {images.map(({ src, caption }, i) => (
+        <div class="photo-item">
+          <img
+            src={src}
+            alt={caption || `Gallery photo ${i + 1}`}
+            loading={i < 3 ? 'eager' : 'lazy'}
+            decoding="async"
+          />
+          {caption && (
+            <div class="photo-caption">
+              <span>{caption}</span>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <button class="strip-btn strip-btn--right" id="strip-next" aria-label="Scroll right">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+  </div>
+</section>
+)}
+
+<script>
+  const strip = document.getElementById('photo-strip')!;
+  const prev  = document.getElementById('strip-prev')!;
+  const next  = document.getElementById('strip-next')!;
+  const STEP  = () => strip.clientWidth * 0.75;
+  prev.addEventListener('click', () => strip.scrollBy({ left: -STEP(), behavior: 'smooth' }));
+  next.addEventListener('click', () => strip.scrollBy({ left:  STEP(), behavior: 'smooth' }));
+</script>
+
+<style>
+  /* ── Section background ── */
+  .gallery-section {
+    padding: 4rem 0 3rem;
+    background: var(--linear-overlay-soft);
+    border-top: 1px solid var(--linear-border-subtle);
+    border-bottom: 1px solid var(--linear-border-subtle);
+    overflow: hidden;
+  }
+
+  .gallery-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .gallery-header h2 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--linear-text-bright);
+    margin: 0.75rem 0 0.5rem;
+  }
+
+  .gallery-header p {
+    color: var(--linear-subtext);
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* ── Strip ── */
+  .strip-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .photo-strip {
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 0 3rem;
+    height: 340px;
+  }
+
+  .photo-strip::-webkit-scrollbar { display: none; }
+
+  /* ── Individual photo ── */
+  .photo-item {
+    flex: 0 0 auto;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.06);
+    position: relative;
+    cursor: pointer;
+  }
+
+  .photo-item img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  /* ── Caption overlay ── */
+  .photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.6rem 0.85rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+  }
+
+  .photo-caption span {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.02em;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    white-space: nowrap;
+  }
+
+  .photo-item:hover img {
+    transform: scale(1.04);
+  }
+
+  .photo-item:hover .photo-caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Arrow buttons ── */
+  .strip-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--linear-border-subtle);
+    background: var(--linear-bg);
+    color: var(--linear-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    backdrop-filter: blur(4px);
+  }
+
+  .strip-btn--left  { left: 0.5rem; }
+  .strip-btn--right { right: 0.5rem; }
+
+  .strip-btn:hover {
+    background: var(--linear-accent-green);
+    border-color: var(--linear-accent-green);
+    color: #fff;
+  }
+</style>

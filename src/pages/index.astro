@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PhotoCarousel from '../components/PhotoCarousel.astro';
 import { getCollection } from 'astro:content';
 import { getImage, Image } from 'astro:assets';
 import { isActiveEvent, startOfToday } from '../lib/eventStatus';
@@ -91,6 +92,9 @@ const upcomingEvents = allEvents
     </section>
   )}
 
+  <!-- Photo Gallery Carousel -->
+  <PhotoCarousel />
+
   <!-- Mission Section -->
   <section class="section-mission">
     <div class="container section-mission-inner">
@@ -181,7 +185,7 @@ const upcomingEvents = allEvents
   /* Events */
   .section-events {
     padding: 4rem 0;
-    background: var(--linear-overlay-soft);
+    background: var(--linear-upcoming-bg);
   }
 
   .section-header {
