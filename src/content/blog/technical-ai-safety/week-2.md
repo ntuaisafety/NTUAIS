@@ -196,7 +196,6 @@ Sarah Hastings-Woodhouse · 2024 · 10 min
 
 你也可以嘗試在 **model parameters** 中修改 prompt template。
 
----
 
 ## 在 Google Colab 中運行
 
@@ -229,8 +228,6 @@ DeepMind Safety Research · 2025 · 5 min
 Adam Jones · 2024 · 10 min
 
 
----
-
 ### [Recommendations for Technical AI Safety Research Directions](https://blog.bluedot.org/p/scalable-oversight-intro/?utm_source=bluedot-impact&_gl=1*p5yqva*_gcl_au*MTczMzM0MjA5OC4xNzczMDcwNjIy)
 
 閱讀 **Scalable oversight**
@@ -249,15 +246,8 @@ Anthropic Alignment Science Team · 2025 · 10 min
 - **Describe a failure mode**：描述一種可能的失敗情境，一個有動機且能力強的行為者可能如何繞過這個方法。
 
 建議時間：
-
 - **30 分鐘閱讀**
 - **30 分鐘寫作**
-
-```
-
-
-
-```
 
 # Optional
 [What is deliberative alignment?](https://blog.bluedot.org/p/deliberative-alignment?utm_source=bluedot-impact&_gl=1*1hnojt4*_gcl_au*MTczMzM0MjA5OC4xNzczMDcwNjIy)
