@@ -1,12 +1,15 @@
 ---
 title: "Chia-Tai Chang"
 description: "B.S. Student @ NTU CSIE | AI Security Lab"
-summary: "Research focuses on mechanistic interpretability (sparse autoencoders for multi-preference alignment) and machine unlearning via adversarial perturbation."
+summary: "Junior at NTU CSIE, researching machine unlearning and adversarial perturbation at AIS Lab, and sparse autoencoder-based reward modeling for RLHF. Outside the lab, organizes the NTU AI Safety reading group and co-leads community-building efforts to bring AI Safety to Taiwan."
 date: 2026-01-31
 role: "organizer"
 weight: 2
 draft: false
 image: "avatar.jpg"
+social:
+  - email: "mailto:jiataizang@gmail.com"
+  - linkedin: "https://www.linkedin.com/in/chia-tai-chang-339886212"
 ---
 
 I am a junior in Computer Science and Information Engineering at National Taiwan University. At the NTU AI Security Lab, my research focuses on two areas:
