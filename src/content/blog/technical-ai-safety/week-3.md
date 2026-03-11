@@ -1,6 +1,6 @@
 ---
 title: "技術性 AI 安全課程：第三週 - 如何偵測危險"
-date: 2026-01-21T21:15:00+08:00
+date: 2026-01-22T21:15:00+08:00
 draft: false
 summary: "本週課程探討如何評估AI是否真的安全，並練習分析於現有的AI公司"
 tags: ["AI Safety", "Course", "Detect Danger"]
