@@ -3,6 +3,7 @@ title: "Fundamental & Policy 2026: AI Safety Technical Course"
 description: "A 8-week guided course on Technical AI Safety, following the BlueDot Impact curriculum."
 summary: "Join us for a deep dive into 'The Alignment Problem'. Learn about the drivers of AI progress, threat pathways, and defence strategies."
 date: 2026-03-16
+endDate: 2026-06-01
 tags: ["fellowship", "introductory", "bluedot", "upcoming", "technical"]
 badge: "Beginner Friendly"
 badge_color: "green"

@@ -3,9 +3,10 @@
   { "file": "2024reading-group-2.jpg", "caption": "2024 AI Safety Reading Group" },
   { "file": "2025reading-group-1.jpg", "caption": "2025 AI Safety Reading Group" },
   { "file": "2025reading-group-2.jpg", "caption": "2025 AI Safety Reading Group" },
-  { "file": "2026workshop-1.jpg",      "caption": "ARENA 3.0 Workshop 2026" },
-  { "file": "2026workshop-2.jpg",      "caption": "ARENA 3.0 Workshop 2026" },
-  { "file": "2026workshop-3.jpg",      "caption": "ARENA 3.0 Workshop 2026" },
+  { "file": "2026workshop-1.jpg",      "caption": "ARENA 3.0 Workshop 2025" },
+  { "file": "2026workshop-2.jpg",      "caption": "ARENA 3.0 Workshop 2025" },
+  { "file": "2026workshop-3.jpg",      "caption": "ARENA 3.0 Workshop 2025" },
   { "file": "EA-HongKong.jpeg",        "caption": "EA Conference — Hong Kong" },
-  { "file": "EAG-Boston.jpg",          "caption": "EAG Conference — Boston" }
+  { "file": "EAG-Boston.jpg",          "caption": "EAG Conference — Boston" },
+  { "file": "2026reading-group.jpg",   "caption": "2026 NTU AIS Kick-off event"}
 ]
