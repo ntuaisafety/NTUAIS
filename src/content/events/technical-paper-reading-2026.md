@@ -131,13 +131,13 @@ The effectiveness of this curriculum has been proven. According to BlueDot Impac
 
 ## How to Join｜如何參加
 
-* **Venue**: NTU CSIE Department Der Tian Hall R601（台大資訊系德田館601）
+* **Venue**: TBD
 * **First Session**: 2026/3/16 (Monday) 19:00–21:00
 * Free of charge with food provided
 * Limited spots available
 * Both English and Mandarin welcome
 
-**[Sign up now →](https://reurl.cc/ppyDox)**
+**[Sign up now →](https://forms.gle/Aweavy6D14oETtDQA)**
 
 **[Join our community →](https://discord.gg/CUz4tWpggV)**
 
