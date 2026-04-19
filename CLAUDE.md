@@ -5,88 +5,79 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Build & Dev Commands
 
 ```bash
-hugo server -D          # Dev server with drafts at http://localhost:1313/NTUAIS/
-hugo --minify           # Production build to ./public/
-hugo new team/name/index.md    # New team member (page bundle)
-hugo new blog/post-title.md    # New blog post
-hugo new events/event-name.md  # New event
+npm install
+npm run dev        # Dev server at http://localhost:4321/
+npm run build      # Production build to ./dist/
+npm run preview    # Preview production build locally
+npm run check      # TypeScript / Astro type-check
 ```
 
-Requires **Hugo Extended** >= 0.154.5. Verify with `hugo version` (must show "extended").
+Requires **Node.js >= 18**.
 
 ## Architecture
 
-Hugo static site using vendored Blowfish theme (v2.98.0). The theme is a full copy in `themes/blowfish/` — **not** a git submodule. Custom layouts in `layouts/` override theme layouts.
+**Astro v5** static site for NTU AI Safety (ntuais.org), deployed to GitHub Pages via `.github/workflows/`. Output is fully static (`output: 'static'`).
 
-### Data-Driven Pages
+### Content Collections
 
-Several pages pull content from YAML data files rather than Markdown:
+Three collections defined in [`src/content/config.ts`](src/content/config.ts) with Zod schemas:
 
-| Data file | Template | What it drives |
-|-----------|----------|---------------|
-| `data/about.yml` | `layouts/about/list.html` | Hero, mission/vision, values, team preview, CTA cards |
-| `data/faq.yml` | `layouts/partials/components/faq-accordion.html` | FAQ accordion on homepage and about page |
-| `data/siteconfig.yml` | Multiple templates | Discord URL, social links, site metadata, collaborators |
-| `data/upcoming_programs.yml` | `layouts/partials/components/program-card.html` | Homepage program cards (fallback when no future events) |
+| Collection | Path | Key fields |
+|---|---|---|
+| `events` | `src/content/events/` | `title`, `date`, `endDate?`, `badge`, `badge_color`, `draft` |
+| `blog` | `src/content/blog/` | `title`, `date`, `authors[]`, `draft` |
+| `team` | `src/content/team/` | `title`, `role` (organizer/mentor/founder), `weight`, `social[]` |
 
-Templates load data with `{{ .Site.Data.about }}` and access nested fields.
+Use `getCollection('events')` etc. to query. Draft filtering is not automatic — filter manually with `.filter(e => !e.data.draft)` as needed.
 
-### relURL is Required for All Internal Links
+### BASE_URL for Internal Links
 
-**The site deploys to a subdirectory** (`/NTUAIS/`), so every internal URL must use `| relURL`:
+The site may deploy to a subdirectory. Always use `import.meta.env.BASE_URL` for internal hrefs:
 
-```go
-<a href="{{ .url | relURL }}">  {{/* CORRECT — prepends /NTUAIS/ */}}
-<a href="{{ .url }}">           {{/* BROKEN — missing base path */}}
+```astro
+const base = import.meta.env.BASE_URL;
+// ...
+<a href={`${base}events/`}>Events</a>
 ```
 
-**Critical:** paths must NOT have a leading `/`. Hugo's `relURL` only prepends the base path for paths without a leading slash:
-- `"events/" | relURL` → `/NTUAIS/events/` (correct)
-- `"/events/" | relURL` → `/events/` (broken — treated as already absolute)
+### Event Status Logic
 
-### Team Members
+[`src/lib/eventStatus.ts`](src/lib/eventStatus.ts) provides `getEventStatus()`, `isActiveEvent()`, and `startOfToday()`. Use these instead of raw date comparisons to correctly handle same-day events.
 
-Page bundles at `content/team/{name}/index.md`. Frontmatter must include `role: organizer` or `role: mentor` — the team page template filters by this field. Place an `avatar.jpg` or `avatar.png` in the same folder; the template finds it via `Resources.GetMatch "avatar.*"`.
+### Design System
 
-### Homepage Layout
+[`src/styles/global.css`](src/styles/global.css) is the Linear-inspired design system. Key conventions:
 
-`layouts/partials/home/background.html` renders:
-1. Hero with typewriter effect (config in `config/_default/params.toml` under `[homepage.typewriter]`)
-2. FAQ accordion (from `data/faq.yml`)
-3. Upcoming events grid (filters `content/events/` by `Date >= now`)
-4. Collaborators logo wall
-5. Recent blog articles
+- CSS custom properties under `:root` — `--linear-bg`, `--linear-text`, `--linear-accent-green`, etc.
+- Typography: `--font-title` (ProFont IIx Nerd Font) for `h1–h3`; `--font-body` (Inter) for everything else
+- Utility classes: `.btn-linear`, `.btn-linear-primary`, `.btn-linear-secondary`, `.card-linear`, `.section-badge`, `.section-badge--green/blue`, `.container`
+- Scoped `<style>` blocks in `.astro` files for page/component-specific styles
 
-### Program Card Dual Mode
+### Path Aliases
 
-`layouts/partials/components/program-card.html` accepts either a Hugo page object (from `content/events/`) or a plain map (from `data/upcoming_programs.yml`). It detects the type with `reflect.IsMap` and reads fields accordingly (`.Title` vs `.title`).
+Configured in `tsconfig.json`:
+- `@components/*` → `src/components/*`
+- `@layouts/*` → `src/layouts/*`
+- `@styles/*` → `src/styles/*`
 
-### Discord URL Injection
+### Layout
 
-The Discord URL is defined once in `data/siteconfig.yml` under `social.discord`. Templates that need it load `{{ $siteConfig := .Site.Data.siteconfig }}` and reference `$siteConfig.social.discord`. The about page uses `merge` to inject it into CTA card data at render time.
+[`src/layouts/BaseLayout.astro`](src/layouts/BaseLayout.astro) wraps every page — injects `<Header>`, `<Footer>`, `global.css`, KaTeX stylesheet, and the ProFont web font. Props: `title` (required), `description` (optional).
 
-## Key Config Files
+### Photo Carousel
 
-- `config/_default/hugo.toml` — baseURL, theme, taxonomies, `buildFuture = true`
-- `config/_default/params.toml` — theme settings, homepage layout, typewriter texts, CTA buttons
-- `config/_default/languages.en.toml` — author name, headline, social links
-- `config/_default/menus.en.toml` — navigation menu
-- `i18n/en.yaml` — UI strings used with `{{ i18n "key_name" }}`
+[`src/components/PhotoCarousel.astro`](src/components/PhotoCarousel.astro) reads from [`src/data/gallery.json`](src/data/gallery.json). Add photo entries there to populate the gallery.
 
-## CSS
+### Math Support
 
-`assets/css/custom.css` — ~1000 line Linear-inspired design system. Key classes:
-- `.btn-linear`, `.btn-linear-primary`, `.btn-linear-secondary` — buttons
-- `.section-badge`, `.section-badge--green`, `.section-badge--blue` — section badges
-- `.hero-linear` — homepage hero
-- `.animate-blur-reveal` with `delay-100` through `delay-400` — staggered entrance animations
+Markdown files support LaTeX via `remark-math` + `rehype-katex`. The KaTeX CSS is loaded globally from CDN in `BaseLayout.astro`.
 
 ## Deployment
 
-Pushes to `main` trigger `.github/workflows/deploy.yml` → Hugo build → GitHub Pages.
+Pushes to `main` trigger GitHub Actions → Astro build → GitHub Pages. The workflow also runs on a daily cron (`0 0 * * *` UTC) to keep event statuses fresh (upcoming → running → past transitions happen via build-time date comparisons, so a stale deploy would show stale statuses).
 
 **Workflow:** branch from `dev` → make changes → PR to `main` → auto-deploy.
 
 ## Commit Conventions
 
-`fix:`, `content:`, `chore:`, `docs:`, `refactor:`, `perf:`, `feat:` — lowercase summary, optional body explaining why. Use `/atomic-commits` skill for grouped commits.
+`fix:`, `content:`, `chore:`, `docs:`, `refactor:`, `perf:`, `feat:` — lowercase summary, optional body explaining why.
