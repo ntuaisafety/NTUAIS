@@ -48,7 +48,7 @@ NTU AI Safety 致力於提升台灣社群對 AI Safety 的認識，並連結國�
 - **Venue**: Room R601, CSIE-DerTian Hall, National Taiwan University
 - **Fee**: Free of charge, with lunch provided
 - **Sponsors**: Pathfinder and BlueDot Impact
-- **Speakers & TAs**: To be announced
+- **Speakers & TAs**: 呂柏頤 (網媒所博五)、陳妍姍 (資工所碩二)、謝子涔(電機所碩畢)、胡皓雍(電信所碩二)、王瑭毅 (電子所碩士)、蔡侑宸（數學五)、蔡孟衡 (資工四)、張嘉泰 (資工四)
 
 ---
 
@@ -57,7 +57,7 @@ NTU AI Safety 致力於提升台灣社群對 AI Safety 的認識，並連結國�
 - **地點**：國立臺灣大學德田館 R601
 - **費用**：全額免費，並提供午餐
 - **贊助**：Pathfinder、BlueDot Impact
-- **講者與 TAs**：名單將另行公布
+- **講者與 TAs**：呂柏頤 (網媒所博五)、陳妍姍 (資工所碩二)、謝子涔(電機所碩畢)、胡皓雍(電信所碩二)、王瑭毅 (電子所碩士)、蔡侑宸（數學五)、蔡孟衡 (資工四)、張嘉泰 (資工四)
 
 ---
 
@@ -106,7 +106,7 @@ This workshop is designed for students and industry professionals with a basic b
 
 ---
 
-1. 在 **2026 年 8 月 24 日前**填寫[報名表單](https://forms.gle/FtVnvPbrkWKvVJxCA)。
+1. 在 **2026 年 8 月 25 日 23:59前**填寫[報名表單](https://forms.gle/FtVnvPbrkWKvVJxCA)。
 2. 加入 [NTU AI Safety Discord](https://discord.gg/YSE4UFbHx)，取得最新活動資訊與後續通知。
 3. 留意報名時填寫的 Email；因名額有限，主辦團隊將進行簡單審核，並於 **2026 年 8 月 31 日前**寄發錄取通知。
 4. 錄取後請預留兩天完整時段，準時參與工作坊。
