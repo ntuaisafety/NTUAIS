@@ -36,7 +36,7 @@ Andy Wang was a junior at the University of Wisconsin–Madison and previously l
 ## Event Details｜活動資訊
 
 - **Date**: May 30, 2026 (Saturday)
-- **Time**: 11:00 (UTC+8)
+- **Time**: 11:00 AM (UTC+8)
 - **Format**: Online
 - **Access**: Meeting information was shared through the NTU AI Safety Discord
 

@@ -36,7 +36,7 @@ Tony Wu is an incoming DPhil student in Engineering Science at the University of
 ## Event Details｜活動資訊
 
 - **Date**: June 1, 2026 (Monday)
-- **Time**: 19:00 (UTC+8)
+- **Time**: 7:00 PM (UTC+8)
 - **Series**: 2026 NTU AI Safety Reading Group speaker event
 
 **Source**: [View the original LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7466882907371134976/)

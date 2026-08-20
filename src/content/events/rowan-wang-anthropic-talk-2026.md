@@ -36,7 +36,7 @@ Rowan Wang is a researcher on Alignment at Anthropic. His research has focused o
 ## Event Details｜活動資訊
 
 - **Date**: July 13, 2026 (Monday)
-- **Time**: 12:00 (UTC+8)
+- **Time**: 12:00 PM (UTC+8)
 - **Language**: English
 - **Format**: Online; the meeting link was sent to registered participants before the event
 - **Registration deadline**: July 10, 2026 at 23:59
