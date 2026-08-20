@@ -1,7 +1,7 @@
 ---
 title: "Andy Wang: My Path Into AI Safety"
 description: "An online talk on entering AI safety, US research developments, and fellowship opportunities｜分享投入 AI Safety 的歷程、美國研究現況與 fellowship 機會。"
-summary: "Andy Wang shares his path from computer vision research to AI safety｜Andy Wang 分享從電腦視覺研究走向 AI Safety 的經歷。"
+summary: "Andy Wang shares his path from computer vision research to AI safety｜Andy Wang 分享從 Computer Vision 研究走向 AI Safety 的經歷。"
 date: 2026-05-30
 tags: ["speaker-event", "career", "research", "online", "past"]
 badge: "Speaker Event"
@@ -19,7 +19,7 @@ Andy will also introduce the current state of AI safety in the United States, ma
 
 ---
 
-NTU AI Safety 的第一場線上講者活動將邀請 **Andy Wang** 分享他投入 AI Safety 的歷程——從高中時期的一般電腦視覺研究，逐步走向 Chain-of-Thought monitorability、真實世界 misalignment 事件，以及美中 AI Safety 對話等主題。
+NTU AI Safety 的第一場線上講者活動將邀請 **Andy Wang** 分享他投入 AI Safety 的歷程——從高中時期的一般 Computer Vision 研究，逐步走向 Chain-of-Thought monitorability、真實世界 misalignment 事件，以及美中 AI Safety 對話等主題。
 
 Andy 也將介紹美國 AI Safety 領域的發展現況、主要研究方向與值得關注的資源，並從自身經驗出發，分享如果重新開始，他會如何規劃進入這個領域的路徑，以及為什麼 AI Safety 需要更多人投入。
 

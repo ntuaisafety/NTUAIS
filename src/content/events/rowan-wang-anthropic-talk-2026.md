@@ -1,7 +1,7 @@
 ---
 title: "Rowan Wang: Alignment in Frontier AI Models"
 description: "An Anthropic research talk on alignment in frontier AI models｜Anthropic 研究員分享前沿 AI 模型的 alignment 研究。"
-summary: "Rowan Wang discusses model alignment, auditing, and automated alignment research｜Rowan Wang 分享模型對齊、稽核與自動化對齊研究。"
+summary: "Rowan Wang discusses model alignment, auditing, and automated alignment research｜Rowan Wang 分享 model alignment、model auditing 與 automated alignment research。"
 date: 2026-07-13
 tags: ["speaker-event", "alignment", "model-auditing", "anthropic", "online", "past"]
 badge: "Speaker Event"
@@ -32,9 +32,9 @@ Rowan Wang 是 Anthropic Alignment 團隊的研究員，研究重點包括 align
 ## Topics｜分享內容
 
 - Current research interests in AI safety｜目前關注的 AI Safety 研究議題
-- Alignment in frontier AI models｜前沿 AI 模型的對齊
-- Model self-improvement and automated alignment research｜模型自我改進與自動化對齊研究
-- Model auditing｜模型稽核
+- Alignment in frontier AI models｜Frontier AI models 的 alignment
+- Model self-improvement and automated alignment research｜Model self-improvement 與 automated alignment research
+- Model auditing｜Model auditing
 - Participant Q&A｜參與者問答
 
 ## Event Details｜活動資訊
