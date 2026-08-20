@@ -9,17 +9,19 @@ badge_color: "purple"
 icon_path: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
 ---
 
+**LinkedIn Post**: [Event announcement](https://www.linkedin.com/feed/update/urn:li:share:7465686373748973568/)
+
 ## About the Talk｜活動簡介
 
-For NTU AI Safety's first online speaker event, **Andy Wang** shared his personal journey into AI safety—from conducting general computer vision research in high school to working on Chain-of-Thought monitorability, real-world misalignment incidents, and US–China AI safety dialogue.
+For NTU AI Safety's first online speaker event, we are excited to welcome **Andy Wang**. Andy will share his personal journey into AI safety—from conducting general computer vision research in high school to working on Chain-of-Thought monitorability, real-world misalignment incidents, and US–China AI safety dialogue.
 
-Andy also introduced the current state of AI safety in the United States, major research directions, and resources for people who want to enter the field. Drawing on his own experience, he discussed how he would plan his path differently if he were starting again and why more people are needed in AI safety work.
+Andy will also introduce the current state of AI safety in the United States, major research directions, and resources for people who want to enter the field. Drawing on his own experience, he will discuss how he would plan his path differently if he were starting again and why more people are needed in AI safety work.
 
 ---
 
-NTU AI Safety 的第一場線上講者活動邀請 **Andy Wang** 分享他投入 AI Safety 的歷程——從高中時期的一般電腦視覺研究，逐步走向 Chain-of-Thought monitorability、真實世界 misalignment 事件，以及美中 AI Safety 對話等主題。
+NTU AI Safety 的第一場線上講者活動將邀請 **Andy Wang** 分享他投入 AI Safety 的歷程——從高中時期的一般電腦視覺研究，逐步走向 Chain-of-Thought monitorability、真實世界 misalignment 事件，以及美中 AI Safety 對話等主題。
 
-Andy 也介紹了美國 AI Safety 領域的發展現況、主要研究方向與值得關注的資源，並從自身經驗出發，分享如果重新開始，他會如何規劃進入這個領域的路徑，以及為什麼 AI Safety 需要更多人投入。
+Andy 也將介紹美國 AI Safety 領域的發展現況、主要研究方向與值得關注的資源，並從自身經驗出發，分享如果重新開始，他會如何規劃進入這個領域的路徑，以及為什麼 AI Safety 需要更多人投入。
 
 ## Speaker｜講者
 
@@ -40,6 +42,4 @@ Andy Wang 當時就讀於威斯康辛大學麥迪遜分校三年級，並曾擔�
 - **Date｜日期**: May 30, 2026 (Saturday)｜2026 年 5 月 30 日（六）
 - **Time｜時間**: 11:00 AM (UTC+8)
 - **Format｜形式**: Online｜線上
-- **Access｜參與方式**: Meeting information was shared through the NTU AI Safety Discord｜會議資訊透過 NTU AI Safety Discord 公布
-
-**Source｜來源**: [View the original LinkedIn post｜查看 LinkedIn 原始貼文](https://www.linkedin.com/feed/update/urn:li:share:7465686373748973568/)
+- **Access｜參與方式**: Meeting information will be shared through the NTU AI Safety Discord｜會議資訊將透過 NTU AI Safety Discord 公布

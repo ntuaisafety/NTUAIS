@@ -9,17 +9,19 @@ badge_color: "purple"
 icon_path: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
 ---
 
+**LinkedIn Post**: [Event announcement](https://www.linkedin.com/feed/update/urn:li:share:7466882907371134976/)
+
 ## About the Talk｜活動簡介
 
-In the second speaker event of the 2026 NTU AI Safety Reading Group, **Tung-Yu (Tony) Wu** explored technical frontiers in AI safety and interpretability. The talk focused on new challenges introduced by increasingly capable AI agents and growing concerns around the faithfulness and monitorability of Chain-of-Thought reasoning.
+In the second speaker event of the 2026 NTU AI Safety Reading Group, **Tung-Yu (Tony) Wu** will explore technical frontiers in AI safety and interpretability. The talk will focus on new challenges introduced by increasingly capable AI agents and growing concerns around the faithfulness and monitorability of Chain-of-Thought reasoning.
 
-Tony also introduced emerging interpretability directions—including LatentQA-style methods and circuit discovery—and discussed recent progress, current limitations, underexplored research questions, and areas where future breakthroughs may emerge.
+Tony will also introduce emerging interpretability directions—including LatentQA-style methods and circuit discovery—and discuss recent progress, current limitations, underexplored research questions, and areas where future breakthroughs may emerge.
 
 ---
 
-在 2026 NTU AI Safety Reading Group 的第二場講者活動中，**Tung-Yu（Tony）Wu** 分享 AI Safety 與 Interpretability 的重要技術前沿，特別聚焦於能力日益增強的 AI agents 帶來的新挑戰，以及 Chain-of-Thought 推理的忠實度與可監測性問題。
+在 2026 NTU AI Safety Reading Group 的第二場講者活動中，**Tung-Yu（Tony）Wu** 將分享 AI Safety 與 Interpretability 的重要技術前沿，特別聚焦於能力日益增強的 AI agents 帶來的新挑戰，以及 Chain-of-Thought 推理的忠實度與可監測性問題。
 
-Tony 也介紹了 LatentQA 類型方法、circuit discovery 等新興可解釋性方向，並討論近期進展、現有限制、仍被低估的研究問題，以及未來可能出現突破的領域。
+Tony 也將介紹 LatentQA 類型方法、circuit discovery 等新興可解釋性方向，並討論近期進展、現有限制、仍被低估的研究問題，以及未來可能出現突破的領域。
 
 ## Speaker｜講者
 
@@ -40,5 +42,3 @@ Tony Wu 即將於牛津大學工程科學系攻讀 DPhil，研究方向為 AI Sa
 - **Date｜日期**: June 1, 2026 (Monday)｜2026 年 6 月 1 日（一）
 - **Time｜時間**: 7:00 PM (UTC+8)
 - **Series｜系列**: 2026 NTU AI Safety Reading Group speaker event｜2026 NTU AI Safety 讀書會講者活動
-
-**Source｜來源**: [View the original LinkedIn post｜查看 LinkedIn 原始貼文](https://www.linkedin.com/feed/update/urn:li:share:7466882907371134976/)
