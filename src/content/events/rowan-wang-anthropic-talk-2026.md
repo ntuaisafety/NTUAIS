@@ -1,7 +1,7 @@
 ---
-title: "Rowan Wang: Model Alignment and Self-Improvement"
-description: "An English-language talk with Anthropic researcher Rowan Wang on current AI safety interests, model alignment, and automated alignment research."
-summary: "Rowan Wang shares Anthropic's latest work on model alignment and model self-improvement, followed by a participant Q&A."
+title: "Rowan Wang: Alignment in Frontier AI Models"
+description: "An Anthropic research talk on alignment in frontier AI models｜Anthropic 研究員分享前沿 AI 模型的 alignment 研究。"
+summary: "Rowan Wang discusses model alignment, auditing, and automated alignment research｜Rowan Wang 分享模型對齊、稽核與自動化對齊研究。"
 date: 2026-07-13
 tags: ["speaker-event", "alignment", "model-auditing", "anthropic", "online", "past"]
 badge: "Speaker Event"
@@ -25,20 +25,22 @@ NTU AI Safety 邀請 Anthropic Alignment 團隊研究員 **Rowan Wang**，分享
 
 Rowan Wang is a researcher on Alignment at Anthropic. His research has focused on alignment training, model auditing, and automated alignment research. Before joining Anthropic, he studied Computer Science and Statistics at Harvard University.
 
+Rowan Wang 是 Anthropic Alignment 團隊的研究員，研究重點包括 alignment training、model auditing 與 automated alignment research。加入 Anthropic 之前，他曾於哈佛大學修讀電腦科學與統計學。
+
 ## Topics｜分享內容
 
-- Current research interests in AI safety
-- Anthropic's latest directions in model alignment
-- Model self-improvement and automated alignment research
-- Model auditing
-- Participant Q&A
+- Current research interests in AI safety｜目前關注的 AI Safety 研究議題
+- Alignment in frontier AI models｜前沿 AI 模型的對齊
+- Model self-improvement and automated alignment research｜模型自我改進與自動化對齊研究
+- Model auditing｜模型稽核
+- Participant Q&A｜參與者問答
 
 ## Event Details｜活動資訊
 
-- **Date**: July 13, 2026 (Monday)
-- **Time**: 12:00 PM (UTC+8)
-- **Language**: English
-- **Format**: Online; the meeting link was sent to registered participants before the event
-- **Registration deadline**: July 10, 2026 at 23:59
+- **Date｜日期**: July 13, 2026 (Monday)｜2026 年 7 月 13 日（一）
+- **Time｜時間**: 12:00 PM (UTC+8)
+- **Language｜語言**: English｜英文
+- **Format｜形式**: Online; the meeting link was sent to registered participants before the event｜線上；會議連結於活動前寄送給完成報名者
+- **Registration deadline｜報名截止**: July 10, 2026 at 11:59 PM｜2026 年 7 月 10 日晚上 11:59
 
-**Source**: [View the original LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7479559539034312704/)
+**Source｜來源**: [View the original LinkedIn post｜查看 LinkedIn 原始貼文](https://www.linkedin.com/feed/update/urn:li:share:7479559539034312704/)

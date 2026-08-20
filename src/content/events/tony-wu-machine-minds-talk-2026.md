@@ -1,7 +1,7 @@
 ---
 title: "Tony Wu: Reading and Safeguarding Machine Minds"
-description: "A speaker event exploring technical frontiers in AI safety and interpretability, from capable agents and Chain-of-Thought monitorability to circuit discovery."
-summary: "Tony Wu discusses emerging research directions in AI safety and interpretability and shares practical perspectives on promising open problems."
+description: "Exploring technical frontiers in AI safety and interpretability｜探索 AI Safety、可解釋性與 Chain-of-Thought monitorability 的技術前沿。"
+summary: "Tony Wu discusses emerging AI safety and interpretability research｜Tony Wu 分享 AI Safety 與可解釋性的前沿研究方向。"
 date: 2026-06-01
 tags: ["speaker-event", "technical", "interpretability", "chain-of-thought", "past"]
 badge: "Speaker Event"
@@ -25,18 +25,20 @@ Tony 也介紹了 LatentQA 類型方法、circuit discovery 等新興可解釋�
 
 Tony Wu is an incoming DPhil student in Engineering Science at the University of Oxford, pursuing research in AI safety and interpretability. He graduated from National Taiwan University with a bachelor's degree in Electrical Engineering and a double major in Economics. His research collaborations have included teams and researchers at NTU, Oxford, MIT, AI2, UCSD, Mila, MPI, and the University of Toronto, and his work has appeared at venues including ICML and ICLR.
 
+Tony Wu 即將於牛津大學工程科學系攻讀 DPhil，研究方向為 AI Safety 與 Interpretability。他畢業於國立臺灣大學電機工程學系，並雙主修經濟學；曾與 NTU、Oxford、MIT、AI2、UCSD、Mila、MPI 與多倫多大學等機構的研究團隊合作，研究成果亦發表於 ICML、ICLR 等頂尖會議。
+
 ## Topics｜分享內容
 
-- Safety challenges posed by increasingly capable AI agents
-- Chain-of-Thought faithfulness and monitorability
-- LatentQA-style interpretability methods
-- Circuit discovery
-- Underexplored and promising research directions in AI safety
+- Safety challenges posed by increasingly capable AI agents｜高能力 AI agents 帶來的安全挑戰
+- Chain-of-Thought faithfulness and monitorability｜思維鏈的忠實度與可監測性
+- LatentQA-style interpretability methods｜LatentQA 類型的可解釋性方法
+- Circuit discovery｜神經網路 circuit discovery
+- Underexplored and promising research directions｜尚未被充分探索、具潛力的研究方向
 
 ## Event Details｜活動資訊
 
-- **Date**: June 1, 2026 (Monday)
-- **Time**: 7:00 PM (UTC+8)
-- **Series**: 2026 NTU AI Safety Reading Group speaker event
+- **Date｜日期**: June 1, 2026 (Monday)｜2026 年 6 月 1 日（一）
+- **Time｜時間**: 7:00 PM (UTC+8)
+- **Series｜系列**: 2026 NTU AI Safety Reading Group speaker event｜2026 NTU AI Safety 讀書會講者活動
 
-**Source**: [View the original LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7466882907371134976/)
+**Source｜來源**: [View the original LinkedIn post｜查看 LinkedIn 原始貼文](https://www.linkedin.com/feed/update/urn:li:share:7466882907371134976/)

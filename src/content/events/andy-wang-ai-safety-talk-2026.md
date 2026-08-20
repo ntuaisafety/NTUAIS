@@ -1,7 +1,7 @@
 ---
 title: "Andy Wang: My Path Into AI Safety"
-description: "An online talk on entering AI safety, the field's development in the United States, and research and fellowship opportunities."
-summary: "Andy Wang shares his path from computer vision research to AI safety, along with practical advice and an overview of current research opportunities."
+description: "An online talk on entering AI safety, US research developments, and fellowship opportunities｜分享投入 AI Safety 的歷程、美國研究現況與 fellowship 機會。"
+summary: "Andy Wang shares his path from computer vision research to AI safety｜Andy Wang 分享從電腦視覺研究走向 AI Safety 的經歷。"
 date: 2026-05-30
 tags: ["speaker-event", "career", "research", "online", "past"]
 badge: "Speaker Event"
@@ -25,19 +25,21 @@ Andy 也介紹了美國 AI Safety 領域的發展現況、主要研究方向與�
 
 Andy Wang was a junior at the University of Wisconsin–Madison and previously led the Wisconsin AI Safety Initiative. As a Constellation Astra researcher, he worked with Scott Emmons on Chain-of-Thought monitorability. He also collaborated with the UK AI Security Institute and worked at METR on real-world misalignment incidents and US–China AI safety dialogue.
 
+Andy Wang 當時就讀於威斯康辛大學麥迪遜分校三年級，並曾擔任 Wisconsin AI Safety Initiative 負責人。作為 Constellation Astra 研究員，他與 Scott Emmons 合作研究 Chain-of-Thought monitorability，也曾與英國 AI Security Institute 合作，並在 METR 參與真實世界 misalignment 事件及美中 AI Safety 對話相關研究。
+
 ## Topics｜分享內容
 
-- Andy's personal path into AI safety
-- The development of AI safety in the United States
-- Major research directions and opportunities in the field
-- METR and the Astra Fellowship
-- Advice for people starting from scratch
+- Andy's personal path into AI safety｜Andy 投入 AI Safety 的個人歷程
+- The development of AI safety in the United States｜AI Safety 在美國的發展
+- Major research directions and opportunities｜主要研究方向與發展機會
+- METR and the Astra Fellowship｜METR 與 Astra Fellowship
+- Advice for people starting from scratch｜給初入領域者的建議
 
 ## Event Details｜活動資訊
 
-- **Date**: May 30, 2026 (Saturday)
-- **Time**: 11:00 AM (UTC+8)
-- **Format**: Online
-- **Access**: Meeting information was shared through the NTU AI Safety Discord
+- **Date｜日期**: May 30, 2026 (Saturday)｜2026 年 5 月 30 日（六）
+- **Time｜時間**: 11:00 AM (UTC+8)
+- **Format｜形式**: Online｜線上
+- **Access｜參與方式**: Meeting information was shared through the NTU AI Safety Discord｜會議資訊透過 NTU AI Safety Discord 公布
 
-**Source**: [View the original LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7465686373748973568/)
+**Source｜來源**: [View the original LinkedIn post｜查看 LinkedIn 原始貼文](https://www.linkedin.com/feed/update/urn:li:share:7465686373748973568/)
