@@ -34,7 +34,7 @@ Tony Wu 即將於牛津大學工程科學系攻讀 DPhil，研究方向為 AI Sa
 - Safety challenges posed by increasingly capable AI agents｜高能力 AI agents 帶來的安全挑戰
 - Chain-of-Thought faithfulness and monitorability｜思維鏈的忠實度與可監測性
 - LatentQA-style interpretability methods｜LatentQA 類型的可解釋性方法
-- Circuit discovery｜神經網路 circuit discovery
+- Circuit discovery｜神經網路迴路探索
 - Underexplored and promising research directions｜尚未被充分探索、具潛力的研究方向
 
 ## Event Details｜活動資訊
