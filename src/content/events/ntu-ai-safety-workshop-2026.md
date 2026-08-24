@@ -99,7 +99,7 @@ This workshop is designed for students and industry professionals with a basic b
 
 ## How to Register｜報名方式與重要時程
 
-1. Complete the [application form](https://forms.gle/FtVnvPbrkWKvVJxCA) by **August 24, 2026**.
+1. Complete the [application form](https://forms.gle/FtVnvPbrkWKvVJxCA) by **11:59 PM on August 25, 2026**.
 2. Join the [NTU AI Safety Discord](https://discord.gg/YSE4UFbHx) for the latest event information and updates.
 3. Check the email address provided in your application. As places are limited, the organizing team will conduct a brief review and send acceptance notifications by **August 31, 2026**.
 4. If accepted, please reserve both full days and arrive on time for the workshop.
