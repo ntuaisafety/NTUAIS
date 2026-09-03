@@ -7,6 +7,8 @@ import { isActiveEvent, startOfToday } from '../lib/eventStatus';
 import heroBgRaw from '../assets/backgrounds/hero-background.jpg';
 import ntuLogo from '../assets/members/ntu_logo.png';
 import aicoeLogo from '../assets/members/AICoE_logo.png';
+import taraLogo from '../assets/members/tara_logo.png';
+import pathfinderLogo from '../assets/members/pathfinder_logo_transparent.png';
 
 const base = import.meta.env.BASE_URL;
 
@@ -23,6 +25,8 @@ const heroBg = await getImage({
 const collaborators = [
   { name: 'National Taiwan University', logo: ntuLogo, url: 'https://www.ntu.edu.tw/' },
   { name: 'AICoE', logo: aicoeLogo, url: 'https://www.twaicoe.org' },
+  { name: 'TARA', logo: taraLogo, url: 'https://www.taraprogram.org/' },
+  { name: 'Pathfinder', logo: pathfinderLogo, url: 'https://pathfinder.kairos-project.org/' },
 ];
 
 // Show events that haven't finished yet (upcoming + running), sorted soonest first
@@ -135,7 +139,7 @@ const upcomingEvents = allEvents
       <div class="collab-logos">
         {collaborators.map(c => (
           <a href={c.url} class="collab-item" target="_blank" rel="noopener noreferrer" aria-label={c.name}>
-            <Image src={c.logo} alt={c.name} height={48} width={120} class="collab-logo" />
+            <Image src={c.logo} alt={`${c.name} logo`} class="collab-logo" />
           </a>
         ))}
       </div>
