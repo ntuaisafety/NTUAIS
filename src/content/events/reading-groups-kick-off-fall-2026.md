@@ -9,11 +9,13 @@ badge_color: "green"
 draft: false
 ---
 
-**[Register for the Kickoff｜Kickoff 報名](https://airtable.com/appuFs4adTEXcFQfu/pagIQk06tZsirZzWW/form)** — **Deadline｜截止日期：2026/09/16**
+**[Register for the Kickoff｜Kickoff 報名](https://airtable.com/appuFs4adTEXcFQfu/pagIQk06tZsirZzWW/form)** — **Deadline｜截止日期：2026/09/16 23:59**
 
 ## About｜活動介紹
 
 Join the joint Kickoff for our three Fall 2026 reading group tracks: **Fundamental Track**, **Policy**, and **Technical Paper Reading**.
+
+We will introduce the basic concepts of AI Safety, how the reading groups operate, and relevant resources in the field. The event will also include a Q&A and open networking time to meet the facilitators and others interested in AI Safety.
 
 歡迎參加 2026 Fall 三個讀書會組別——**Fundamental Track、Policy 與 Technical Paper Reading**——共同舉辦的 Kickoff。
 
@@ -21,19 +23,21 @@ Join the joint Kickoff for our three Fall 2026 reading group tracks: **Fundament
 
 ## What We'll Cover｜活動內容
 
-- AI Safety 的基本概念
-- 三個讀書會組別與運作模式
-- AI Safety 領域的相關資源
-- Q&A
-- 自由交流
+- Introduction to AI Safety｜AI Safety 基本概念
+- Reading group tracks and format｜三個讀書會組別與運作模式
+- Relevant resources in the field｜AI Safety 領域的相關資源
+- Q&A｜問答
+- Open networking｜自由交流
 
 ## Event Details｜活動資訊
 
-- **Date｜日期:** 2026/09/21（一）
+- **Date｜日期:** Monday, September 21, 2026｜2026/09/21（一）
 - **Time｜時間:** 19:00–21:00
-- **Venue｜地點:** 臺大資訊工程學系德田館 601 教室
+- **Venue｜地點:** Room 601, Der Tian Hall, Department of Computer Science and Information Engineering, NTU｜臺大資訊工程學系德田館 601 教室
 
 註：三個組別將共同舉辦 Kickoff，無論參加哪個組別，都只需填寫一次 Kickoff 報名表。
+
+Note: The three tracks share one Kickoff. Regardless of which track you plan to join, you only need to submit the Kickoff registration form once.
 
 ## Stay Connected｜更多資訊
 
