@@ -32,6 +32,7 @@ const team = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    preferredName: z.string().optional(),
     description: z.string().optional(),
     summary: z.string().optional(),
     role: z.enum(['organizer', 'mentor', 'founder']),
