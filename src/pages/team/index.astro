@@ -13,6 +13,12 @@ const avatarGlob = import.meta.glob<{ default: ImageMetadata }>(
 );
 
 const allMembers = await getCollection('team', ({ data }) => !data.draft);
+const organizerBios = new Map(await Promise.all(
+  allMembers.filter(member => member.data.role === 'organizer').map(async member => {
+    const { Content } = await member.render();
+    return [member.id, Content] as const;
+  })
+));
 
 const mentors = allMembers
   .filter(m => m.data.role === 'mentor')
@@ -78,19 +84,20 @@ const groups = [
         <div class="team-grid">
           {members.map(member => {
             const links = getSocialLinks(member.data.social ?? []);
-            const hasDetails = member.data.summary || links.length > 0;
+            const Bio = organizerBios.get(member.id);
+            const hasDetails = member.data.description || member.data.summary || links.length > 0;
             return hasDetails ? (
               <details class="member-card card-linear">
                 <summary class="member-summary-row">
                   <Image
                     src={getAvatar(member)}
-                    alt={member.data.title}
+                    alt={member.data.preferredName ?? member.data.title}
                     width={256}
                     height={256}
                     class="member-avatar"
                   />
                   <div class="member-header-info">
-                    <span class="member-name">{member.data.title}</span>
+                    <span class="member-name">{member.data.preferredName ?? member.data.title}</span>
                     {member.data.description && (
                       <span class="member-role">{member.data.description}</span>
                     )}
@@ -102,7 +109,7 @@ const groups = [
                   </span>
                 </summary>
                 <div class="member-body">
-                  {member.data.summary && <p class="member-bio">{member.data.summary}</p>}
+                  {Bio ? <div class="member-bio"><Bio /></div> : member.data.summary && <p class="member-bio">{member.data.summary}</p>}
                   {links.length > 0 && (
                     <div class="member-social">
                       {links.map(link => (
@@ -122,16 +129,13 @@ const groups = [
                 <div class="member-summary-row">
                   <Image
                     src={getAvatar(member)}
-                    alt={member.data.title}
+                    alt={member.data.preferredName ?? member.data.title}
                     width={256}
                     height={256}
                     class="member-avatar"
                   />
                   <div class="member-header-info">
-                    <span class="member-name">{member.data.title}</span>
-                    {member.data.description && (
-                      <span class="member-role">{member.data.description}</span>
-                    )}
+                    <span class="member-name">{member.data.preferredName ?? member.data.title}</span>
                   </div>
                 </div>
               </div>
@@ -184,8 +188,10 @@ const groups = [
 
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    grid-auto-rows: 1fr;
+    align-items: stretch;
   }
 
   /* Toggle card */
@@ -215,9 +221,13 @@ const groups = [
 
   .member-summary-row {
     display: flex;
+    box-sizing: border-box;
+    height: 100%;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.25rem;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    text-align: center;
     cursor: pointer;
     list-style: none;
     user-select: none;
@@ -233,6 +243,12 @@ const groups = [
     cursor: default;
   }
 
+  .member-card--static .member-summary-row::after {
+    content: '';
+    height: 16px;
+    flex-shrink: 0;
+  }
+
   .member-card--static .member-summary-row:hover {
     background: none;
   }
@@ -246,36 +262,43 @@ const groups = [
   .member-summary-row::marker { display: none; }
 
   .member-avatar {
-    width: 52px;
-    height: 52px;
+    width: 180px;
+    height: 180px;
+    max-width: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--linear-border-subtle);
+    border: 2px solid var(--linear-accent-green);
     flex-shrink: 0;
   }
 
   .member-header-info {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
-    flex: 1;
+    gap: 0.5rem;
+    flex: 0 0 auto;
     min-width: 0;
   }
 
   .member-name {
-    font-size: 0.975rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--linear-text-bright);
   }
 
   .member-role {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     color: var(--linear-accent-green);
     font-weight: 500;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .member-card[open] .member-role,
+  .member-card--static .member-role {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    overflow-wrap: anywhere;
   }
 
   .member-chevron {
