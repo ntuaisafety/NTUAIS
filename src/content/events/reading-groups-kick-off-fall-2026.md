@@ -1,5 +1,5 @@
 ---
-title: "2026 Fall Reading Group Kickoff"
+title: "2026 Fall — Reading Groups Kickoff"
 description: "Meet the three reading group tracks, learn the basics of AI Safety, and connect with the NTU AI Safety community.｜認識三個讀書會組別、AI Safety 基本概念與社群資源。"
 summary: "An introduction to AI Safety, the Fall 2026 reading groups, relevant resources, Q&A, and open networking."
 date: 2026-09-21
@@ -8,8 +8,6 @@ badge: "Kickoff"
 badge_color: "green"
 draft: false
 ---
-
-**[Register for the Kickoff｜Kickoff 報名](https://airtable.com/appuFs4adTEXcFQfu/pagIQk06tZsirZzWW/form)** — **Deadline｜截止日期：2026/09/16 23:59**
 
 ## About｜活動介紹
 
@@ -35,9 +33,7 @@ We will introduce the basic concepts of AI Safety, how the reading groups operat
 - **Time｜時間:** 19:00–21:00
 - **Venue｜地點:** Room 601, Der Tian Hall, Department of Computer Science and Information Engineering, NTU｜臺大資訊工程學系德田館 601 教室
 
-註：三個組別將共同舉辦 Kickoff，無論參加哪個組別，都只需填寫一次 Kickoff 報名表。
-
-Note: The three tracks share one Kickoff. Regardless of which track you plan to join, you only need to submit the Kickoff registration form once.
+**[Register for the Kickoff｜Kickoff 報名](https://airtable.com/appuFs4adTEXcFQfu/pagIQk06tZsirZzWW/form)** — **Deadline｜截止日期：2026/09/16 23:59**
 
 ## Stay Connected｜更多資訊
 
