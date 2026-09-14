@@ -39,6 +39,8 @@ Explore AI alignment, safer training, evaluations, interpretability, and AI cont
 | W11 | 12/14 | Connection Dinner | — | — |
 | — | 12/21 | Final | — | — |
 
+課程參考：[BlueDot Impact — Technical AI Safety](https://bluedot.org/courses/technical-ai-safety/1/1)
+
 ## Participation Details｜參加資訊
 
 - **Regular sessions｜固定時間:** Every Monday / 每週一，19:00–21:00
