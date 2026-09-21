@@ -31,7 +31,7 @@ We will introduce the basic concepts of AI Safety, how the reading groups operat
 
 - **Date｜日期:** Monday, September 21, 2026｜2026/09/21（一）
 - **Time｜時間:** 19:00–21:00
-- **Venue｜地點:** Room 601, Der Tian Hall, Department of Computer Science and Information Engineering, NTU｜臺大資訊工程學系德田館 601 教室
+- **Venue｜地點:** Room 143, Electrical Engineering Building II, Department of Electrical Engineering, NTU｜臺大電機二館 143 教室
 
 **[Register for the Kickoff｜Kickoff 報名](https://airtable.com/appuFs4adTEXcFQfu/pagIQk06tZsirZzWW/form)** — **Deadline｜截止日期：2026/09/16 23:59**
 
