@@ -70,6 +70,8 @@ html {
   background-color: var(--linear-bg);
   color: var(--linear-text);
   scroll-behavior: smooth;
+  /* Keep anchor headings below the sticky navigation. */
+  scroll-padding-top: 6rem;
 }
 
 /* Big titles use ProFont Nerd Font; body text stays Inter */
