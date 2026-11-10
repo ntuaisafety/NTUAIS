@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "讀書會第一週：人工通用智慧"
 date: 2024-01-04T00:00:00+08:00
 draft: false

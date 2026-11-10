@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "技術性 AI 安全課程：第六週 - 你的下一步"
 date: 2026-02-08T22:15:00+08:00
 draft: false

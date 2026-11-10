@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "技術性 AI 安全課程：第五週 - 假設傷害會發生"
 date: 2026-02-01T22:15:00+08:00
 draft: false

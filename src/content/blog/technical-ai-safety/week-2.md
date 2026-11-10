@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "技術性 AI 安全課程：第二週 - AI 面臨的技術挑戰"
 date: 2026-01-21T21:15:00+08:00
 draft: false

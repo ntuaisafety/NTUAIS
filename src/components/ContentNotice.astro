@@ -1,0 +1,10 @@
+---
+import { t, type Locale } from '../i18n';
+interface Props { locale: Locale; language: Locale | 'mul' }
+const { locale, language } = Astro.props;
+---
+{language !== locale && (
+  <aside class="translation-note" aria-label={t(locale, 'languageNav')}>
+    {t(locale, language === 'en' ? 'englishContent' : 'originalContent')}
+  </aside>
+)}

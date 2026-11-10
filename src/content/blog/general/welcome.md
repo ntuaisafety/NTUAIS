@@ -1,4 +1,5 @@
 ---
+bodyLanguage: en
 title: "Welcome to NTUAIS"
 date: 2023-01-01
 authors: ["ntuais-team"]

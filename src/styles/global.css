@@ -56,6 +56,21 @@
   --transition-normal: 0.3s ease;
 }
 
+html:lang(zh-TW) {
+  --font-body: 'Inter', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
+  --font-title: 'ProFont IIx Nerd Font', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
+}
+
+.translation-note {
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid var(--linear-accent-green);
+  background: var(--linear-overlay-soft);
+  border-radius: var(--border-radius-sm);
+  color: var(--linear-subtext);
+  font-size: 0.875rem;
+}
+
 /* ============================================
    Base Reset & Defaults
    ============================================ */

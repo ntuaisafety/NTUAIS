@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "NTU AI Safety 讀書會：第六週 - 對抗性稳健、機器遺忘與 AI 控制"
 date: 2025-02-12T19:00:00+08:00
 draft: false

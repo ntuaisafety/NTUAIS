@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "讀書會第六週：可解釋性"
 date: 2024-02-29T00:00:00+08:00
 draft: false

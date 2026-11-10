@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "技術性 AI 安全課程：第三週 - 如何偵測危險"
 date: 2026-01-22T21:15:00+08:00
 draft: false

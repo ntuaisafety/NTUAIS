@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "讀書會第四週：任務分解與可擴展監督"
 date: 2024-02-01T00:00:00+08:00
 draft: false

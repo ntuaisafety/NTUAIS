@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "NTU AI Safety 讀書會：第二週 - 神經網路與深度學習基礎"
 date: 2024-12-04T19:00:00+08:00
 draft: false

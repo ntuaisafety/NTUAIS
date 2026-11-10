@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "讀書會第七週：AI 治理"
 date: 2024-03-07T00:00:00+08:00
 draft: false

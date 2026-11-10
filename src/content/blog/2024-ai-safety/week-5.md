@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "讀書會第五週：對抗性技術與可擴展監督"
 date: 2024-02-22T00:00:00+08:00
 draft: false

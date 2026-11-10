@@ -1,0 +1,272 @@
+---
+import { t, localePath, dateLocale, type Locale } from '../i18n';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLocalizedCollection } from '../i18n/content';
+import { getEventStatus, startOfToday } from '../lib/eventStatus';
+import { getImage } from 'astro:assets';
+import heroBgRaw from '../assets/backgrounds/hero-background.jpg';
+
+interface Props { locale?: Locale }
+const { locale = 'en' } = Astro.props;
+
+const base = localePath(locale);
+const heroBg = await getImage({ src: heroBgRaw, width: 3000, height: 600, format: 'webp', quality: 85, fit: 'cover' });
+
+const allEvents = await getLocalizedCollection('events', locale);
+const today = startOfToday();
+
+const upcoming = allEvents
+  .filter(e => getEventStatus(e.data.date, e.data.endDate, today) === 'upcoming')
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+
+const running = allEvents
+  .filter(e => getEventStatus(e.data.date, e.data.endDate, today) === 'running')
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+
+const past = allEvents
+  .filter(e => getEventStatus(e.data.date, e.data.endDate, today) === 'past')
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function formatDateRange(startDate: Date, endDate?: Date) {
+  const fmt = (d: Date) => d.toLocaleDateString(dateLocale(locale), { month: 'short', day: 'numeric', year: 'numeric' });
+  return endDate ? `${fmt(startDate)} – ${fmt(endDate)}` : fmt(startDate);
+}
+---
+
+<BaseLayout locale={locale} title={t(locale, 'events')} description={t(locale, 'eventsDescription')}>
+
+  <section class="page-hero">
+    <div class="page-hero-bg" style={`background-image: url('${heroBg.src}')`} aria-hidden="true"></div>
+    <div class="container">
+      <span class="section-badge">{t(locale, 'programsEvents')}</span>
+      <h1>{t(locale, 'ourEvents')}</h1>
+      <p>{t(locale, 'eventsPageIntro')}</p>
+    </div>
+  </section>
+
+  <!-- Running now -->
+  {running.length > 0 && (
+    <section class="events-section events-section--running">
+      <div class="container">
+        <h2 class="events-section-title">
+          <span class="running-dot" aria-hidden="true"></span>{t(locale, 'running')}</h2>
+        <div class="events-list">
+          {running.map(event => (
+            <a href={`${base}events/${event.slug}/`} class="card-linear event-row">
+              <div class="event-row-meta">
+                <span class={`section-badge section-badge--${event.data.badge_color ?? 'green'}`}>
+                  {event.data.badge ?? t(locale, 'event')}
+                </span>
+                <time datetime={event.data.date.toISOString()}>
+                  {formatDateRange(event.data.date, event.data.endDate)}
+                </time>
+              </div>
+              <div class="event-row-body">
+                <h3>{event.data.title}</h3>
+                <p>{event.data.description}</p>
+              </div>
+              <span class="event-row-arrow" aria-hidden="true">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Upcoming -->
+  {upcoming.length > 0 && (
+    <section class="events-section">
+      <div class="container">
+        <h2 class="events-section-title">{t(locale, 'upcoming')}</h2>
+        <div class="events-list">
+          {upcoming.map(event => (
+            <a href={`${base}events/${event.slug}/`} class="card-linear event-row">
+              <div class="event-row-meta">
+                <span class={`section-badge section-badge--${event.data.badge_color ?? 'green'}`}>
+                  {event.data.badge ?? t(locale, 'event')}
+                </span>
+                <time datetime={event.data.date.toISOString()}>
+                  {formatDateRange(event.data.date, event.data.endDate)}
+                </time>
+              </div>
+              <div class="event-row-body">
+                <h3>{event.data.title}</h3>
+                <p>{event.data.description}</p>
+              </div>
+              <span class="event-row-arrow" aria-hidden="true">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Past -->
+  {past.length > 0 && (
+    <section class="events-section events-section--past">
+      <div class="container">
+        <h2 class="events-section-title">{t(locale, 'pastEvents')}</h2>
+        <div class="events-list">
+          {past.map(event => (
+            <a href={`${base}events/${event.slug}/`} class="card-linear event-row event-row--past">
+              <div class="event-row-meta">
+                <span class="section-badge">{t(locale, 'past')}</span>
+                <time datetime={event.data.date.toISOString()}>
+                  {formatDateRange(event.data.date, event.data.endDate)}
+                </time>
+              </div>
+              <div class="event-row-body">
+                <h3>{event.data.title}</h3>
+                <p>{event.data.description}</p>
+              </div>
+              <span class="event-row-arrow" aria-hidden="true">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {allEvents.length === 0 && (
+    <section class="events-section">
+      <div class="container events-empty">
+        <p>{t(locale, 'noEvents')}</p>
+      </div>
+    </section>
+  )}
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding: 4rem 0 2rem;
+    border-bottom: 1px solid var(--linear-border-subtle);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #F7FAF9;
+    margin: 0.75rem 0 0.75rem;
+  }
+
+  .page-hero p {
+    color: rgba(247, 250, 249, 0.8);
+    max-width: 560px;
+    font-size: 1.05rem;
+  }
+
+  .page-hero .section-badge {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: rgba(247, 250, 249, 0.9);
+  }
+
+  .events-section {
+    padding: 3rem 0;
+  }
+
+  .events-section--running {
+    background: var(--linear-status-upcoming-bg);
+    border-bottom: 1px solid rgba(45, 122, 103, 0.2);
+  }
+
+  .events-section--past {
+    background: var(--linear-overlay-soft);
+  }
+
+  .events-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--linear-text-bright);
+    margin-bottom: 1.25rem;
+  }
+
+  /* Pulsing green dot for "Running Now" */
+  .running-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--linear-accent-green);
+    animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  .events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .event-row {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+    text-decoration: none;
+    color: var(--linear-text);
+  }
+
+  .event-row--past {
+    opacity: 0.75;
+  }
+
+  .event-row-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .event-row-meta time {
+    font-size: 0.78rem;
+    color: var(--linear-muted);
+  }
+
+  .event-row-body h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--linear-text-bright);
+    margin-bottom: 0.25rem;
+  }
+
+  .event-row-body p {
+    font-size: 0.875rem;
+    color: var(--linear-subtext);
+  }
+
+  .event-row-arrow {
+    font-size: 1.25rem;
+    color: var(--linear-muted);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .event-row:hover .event-row-arrow {
+    color: var(--linear-accent-green);
+    transform: translateX(4px);
+  }
+
+  .events-empty {
+    text-align: center;
+    padding: 4rem 0;
+    color: var(--linear-muted);
+  }
+
+  @media (max-width: 640px) {
+    .event-row {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .event-row-arrow {
+      display: none;
+    }
+  }
+</style>

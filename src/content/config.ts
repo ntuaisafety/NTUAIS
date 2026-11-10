@@ -4,6 +4,7 @@ const events = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    bodyLanguage: z.enum(['en', 'zh-TW', 'mul']).default('mul'),
     description: z.string(),
     summary: z.string().optional(),
     date: z.coerce.date(),
@@ -20,6 +21,7 @@ const blog = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    bodyLanguage: z.enum(['en', 'zh-TW', 'mul']).default('mul'),
     date: z.coerce.date(),
     summary: z.string().optional(),
     tags: z.array(z.string()).optional().default([]),
@@ -32,6 +34,7 @@ const team = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    bodyLanguage: z.enum(['en', 'zh-TW', 'mul']).default('en'),
     preferredName: z.string().optional(),
     description: z.string().optional(),
     summary: z.string().optional(),
@@ -42,4 +45,20 @@ const team = defineCollection({
   }),
 });
 
-export const collections = { events, blog, team };
+// Optional translations reference an existing record; dates, IDs, assets, tags,
+// authors, roles and publication status remain owned by that source record.
+const translations = defineCollection({
+  type: 'content',
+  schema: z.object({
+    sourceCollection: z.enum(['events', 'blog', 'team']),
+    sourceId: z.string(),
+    locale: z.enum(['en', 'zh-TW']),
+    title: z.string().optional(),
+    description: z.string().optional(),
+    summary: z.string().optional(),
+    badge: z.string().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { events, blog, team, translations };

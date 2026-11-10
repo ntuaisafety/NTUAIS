@@ -1,16 +1,19 @@
 ---
 const currentYear = new Date().getFullYear();
+import { t, type Locale } from '../i18n';
+interface Props { locale?: Locale }
+const { locale = 'en' } = Astro.props;
 ---
 
 <footer class="site-footer">
   <div class="container footer-inner">
     <p class="footer-copy">
-      &copy; {currentYear} NTU AI Safety. All rights reserved.
+      &copy; {currentYear} NTU AI Safety. {t(locale, 'rights')}
     </p>
-    <nav class="footer-links" aria-label="Footer navigation">
+    <nav class="footer-links" aria-label={t(locale, 'footerNav')}>
       <a href="https://discord.gg/MqYwhbY6tv" target="_blank" rel="noopener noreferrer">Discord</a>
       <!-- <a href="https://github.com/ntuai-safety" target="_blank" rel="noopener noreferrer">GitHub</a> -->
-      <a href="mailto:ntuaisafety@gmail.com">Contact</a>
+      <a href="mailto:ntuaisafety@gmail.com">{t(locale, 'contact')}</a>
     </nav>
   </div>
 </footer>

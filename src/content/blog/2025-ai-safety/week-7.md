@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "NTU AI Safety 讀書會：第七週 - 機械可解釋性：打開 AI 的黑盒子"
 date: 2025-02-26T19:00:00+08:00
 draft: false

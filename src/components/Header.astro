@@ -1,13 +1,16 @@
 ---
 import logoSrc from '../assets/branding/ntuais-logo.png?url';
+import { t, localePath, type Locale } from '../i18n';
 
-const base = import.meta.env.BASE_URL;
+interface Props { locale?: Locale; path?: string }
+const { locale = 'en', path = '' } = Astro.props;
+const base = localePath(locale);
 
 const navLinks = [
-  { label: 'About',  href: 'about/'  },
-  { label: 'Events', href: 'events/' },
-  { label: 'Blog',   href: 'blog/'   },
-  { label: 'Team',   href: 'team/'   },
+  { label: t(locale, 'about'),  href: 'about/'  },
+  { label: t(locale, 'events'), href: 'events/' },
+  { label: t(locale, 'blog'),   href: 'blog/'   },
+  { label: t(locale, 'team'),   href: 'team/'   },
 ];
 ---
 
@@ -18,9 +21,18 @@ const navLinks = [
       <img src={logoSrc} alt="NTUAIS" width="40" height="40" />
     </a>
 
-    <nav class="site-nav" aria-label="Main navigation">
+    <nav class="site-nav" aria-label={t(locale, 'mainNav')}>
       {navLinks.map(link => (
         <a href={`${base}${link.href}`} class="nav-link">{link.label}</a>
+      ))}
+    </nav>
+
+    <nav class="language-switch" aria-label={t(locale, 'languageNav')}>
+      {(['en', 'zh-TW'] as const).map(language => (
+        <a href={localePath(language, path)} lang={language} data-language-switch
+          aria-current={locale === language ? 'true' : undefined}>
+          {language === 'en' ? 'EN' : '繁中'}
+        </a>
       ))}
     </nav>
 
@@ -30,10 +42,10 @@ const navLinks = [
       target="_blank"
       rel="noopener noreferrer"
     >
-      Join Discord
+      {t(locale, 'joinDiscord')}
     </a>
 
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <button class="hamburger" id="hamburger" aria-label={t(locale, 'toggleMenu')} aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
@@ -51,12 +63,19 @@ const navLinks = [
       target="_blank"
       rel="noopener noreferrer"
     >
-      Join Discord
+      {t(locale, 'joinDiscord')}
     </a>
   </div>
 </header>
 
 <script>
+  // Retain a same-page anchor when it also exists in the translated article.
+  document.querySelectorAll<HTMLAnchorElement>('[data-language-switch]').forEach(link => {
+    const target = new URL(link.href);
+    target.search = window.location.search;
+    target.hash = window.location.hash;
+    link.href = target.href;
+  });
   const btn = document.getElementById('hamburger')!;
   const nav = document.getElementById('mobile-nav')!;
 
@@ -77,6 +96,10 @@ const navLinks = [
 </script>
 
 <style>
+  .language-switch { display: flex; gap: 0.2rem; flex-shrink: 0; }
+  .language-switch a { padding: 0.35rem 0.5rem; border-radius: var(--border-radius-sm); color: var(--linear-subtext); font-size: 0.85rem; text-decoration: none; white-space: nowrap; }
+  .language-switch a[aria-current='true'] { background: var(--linear-button-bg); color: var(--linear-button-text); }
+  .language-switch a:focus-visible { outline: 2px solid var(--linear-accent-green); outline-offset: 3px; }
   .site-header {
     position: sticky;
     top: 0;
@@ -196,6 +219,8 @@ const navLinks = [
 
   /* ── Mobile: ≤768px ── */
   @media (max-width: 768px) {
+    .header-inner { gap: 0.5rem; }
+    .language-switch { margin-left: auto; }
     .site-nav,
     .header-cta {
       display: none;

@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "NTU AI Safety 讀書會：第一週 - AI Safety 入門導覽"
 date: 2024-11-27
 draft: false

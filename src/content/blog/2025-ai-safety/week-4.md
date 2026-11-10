@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "NTU AI Safety 讀書會：第四週 - RLHF 與憲法式 AI"
 date: 2025-01-08T19:00:00+08:00
 draft: false

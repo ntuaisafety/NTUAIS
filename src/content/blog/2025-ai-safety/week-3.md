@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "NTU AI Safety 讀書會：第三週 - AI 對齊問題與潛在風險"
 date: 2024-12-18T19:00:00+08:00
 draft: false

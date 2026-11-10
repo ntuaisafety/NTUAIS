@@ -1,0 +1,9 @@
+---
+import View from '../../../views/Event.astro';
+import { getLocalizedCollection } from '../../../i18n/content';
+export async function getStaticPaths() {
+  const entries = await getLocalizedCollection('events', 'en');
+  return entries.map(entry => ({ params: { slug: entry.slug }, props: { event: entry } }));
+}
+---
+<View locale="en" event={Astro.props.event} />

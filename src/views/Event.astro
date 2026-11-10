@@ -1,0 +1,310 @@
+---
+import { t, localePath, dateLocale, type Locale } from '../i18n';
+import ContentNotice from '../components/ContentNotice.astro';
+import type { LocalizedEntry } from '../i18n/content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEventStatus, startOfToday } from '../lib/eventStatus';
+
+
+interface Props { locale?: Locale; event: LocalizedEntry<'events'> }
+const { locale = 'en', event } = Astro.props;
+const { Content } = await event.bodyEntry.render();
+const base = localePath(locale);
+
+const today = startOfToday();
+const status = getEventStatus(event.data.date, event.data.endDate, today);
+
+function formatDateRange(startDate: Date, endDate?: Date) {
+  const fmt = (d: Date) => d.toLocaleDateString(dateLocale(locale), { month: 'long', day: 'numeric', year: 'numeric' });
+  return endDate ? `${fmt(startDate)} – ${fmt(endDate)}` : fmt(startDate);
+}
+---
+
+<BaseLayout locale={locale} title={event.data.title} description={event.data.description}>
+
+  <article class="event-page">
+    <header class="event-header">
+      <div class="container">
+        <a href={`${base}events/`} class="back-link">{t(locale, 'backEvents')}</a>
+
+        <div class="event-meta">
+          <span class={`section-badge section-badge--${event.data.badge_color ?? 'green'}`}>
+            {event.data.badge ?? t(locale, 'event')}
+          </span>
+          <span class={`status-pill status-pill--${status}`}>
+            {t(locale, status === 'running' ? 'running' : status === 'upcoming' ? 'upcoming' : 'past')}
+          </span>
+        </div>
+
+        <h1>{event.data.title}</h1>
+        <p class="event-lead">{event.data.description}</p>
+
+        <div class="event-date-row">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" width="16" height="16">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <time datetime={event.data.date.toISOString()}>
+            {formatDateRange(event.data.date, event.data.endDate)}
+          </time>
+        </div>
+
+        {event.data.tags.length > 0 && (
+          <div class="event-tags">
+            {event.data.tags.map(tag => <span class="tag">{tag}</span>)}
+          </div>
+        )}
+      </div>
+    </header>
+
+    <div class="event-body container">
+      <ContentNotice locale={locale} language={event.bodyLanguage} />
+      <div lang={event.bodyLanguage === 'mul' ? undefined : event.bodyLanguage}><Content /></div>
+    </div>
+
+    <footer class="event-footer container">
+      <a href={`${base}events/`} class="btn-linear btn-linear-secondary">{t(locale, 'backToEvents')}</a>
+    </footer>
+  </article>
+
+</BaseLayout>
+
+<style>
+  .event-page {
+    padding-bottom: 5rem;
+  }
+
+  .event-header {
+    padding: 3rem 0 2.5rem;
+    border-bottom: 1px solid var(--linear-border-subtle);
+    margin-bottom: 3rem;
+  }
+
+  .back-link {
+    font-size: 0.875rem;
+    color: var(--linear-muted);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    transition: color var(--transition-fast);
+  }
+
+  .back-link:hover {
+    color: var(--linear-text);
+  }
+
+  .event-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .status-pill {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid;
+  }
+
+  .status-pill--upcoming {
+    background: var(--linear-status-upcoming-bg);
+    color: var(--linear-accent-green);
+    border-color: rgba(45, 122, 103, 0.3);
+  }
+
+  .status-pill--running {
+    background: rgba(45, 122, 103, 0.15);
+    color: var(--linear-accent-green);
+    border-color: rgba(45, 122, 103, 0.5);
+  }
+
+  .status-pill--past {
+    background: var(--linear-overlay-soft);
+    color: var(--linear-muted);
+    border-color: var(--linear-border-subtle);
+  }
+
+  .event-header h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--linear-text-bright);
+    line-height: 1.2;
+    max-width: 760px;
+    margin-bottom: 0.75rem;
+  }
+
+  .event-lead {
+    font-size: 1.05rem;
+    color: var(--linear-subtext);
+    max-width: 660px;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+
+  .event-date-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--linear-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .event-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: var(--linear-overlay-soft);
+    border: 1px solid var(--linear-border-subtle);
+    color: var(--linear-subtext);
+  }
+
+  /* Prose */
+  .event-body {
+    max-width: 760px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--linear-text);
+  }
+
+  .event-body :global(h1) {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--linear-text-bright);
+    margin: 2.5rem 0 0.75rem;
+  }
+
+  .event-body :global(h2) {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--linear-text-bright);
+    margin: 2.5rem 0 0.75rem;
+    background: var(--linear-overlay-soft);
+    border-left: 3px solid var(--linear-accent-green);
+    padding: 0.45rem 0.75rem;
+    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+  }
+
+  .event-body :global(h3) {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--linear-text-bright);
+    margin: 2rem 0 0.5rem;
+    border-left: 2px solid var(--linear-border-strong);
+    padding-left: 0.6rem;
+  }
+
+  .event-body :global(h4) {
+    margin: 1rem 0 0.75rem;
+    font-size: 1rem;
+    color: var(--linear-text-bright);
+  }
+
+  .event-body :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .event-body :global(ul),
+  .event-body :global(ol) {
+    margin: 0 0 1.25rem 1.5rem;
+  }
+
+  .event-body :global(li) {
+    margin-bottom: 0.4rem;
+  }
+
+  .event-body :global(a) {
+    color: var(--linear-accent-green);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .event-body :global(strong) {
+    font-weight: 600;
+    color: var(--linear-text-bright);
+  }
+
+  .event-body :global(blockquote) {
+    border-left: 3px solid var(--linear-muted);
+    background: var(--linear-overlay-medium);
+    padding: 0.1rem 0.75rem;
+    margin: 1.25rem 0;
+    color: var(--linear-subtext);
+    font-style: italic;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .event-body :global(iframe) {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: none;
+    border-radius: var(--border-radius-md);
+    margin: 1.5rem 0;
+    display: block;
+  }
+
+  .event-body :global(hr) {
+    border: none;
+    border-top: 1px solid var(--linear-border-subtle);
+    margin: 2.5rem 0;
+  }
+
+  /* Schedule / content tables */
+  .event-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin: 1.25rem 0 1.5rem;
+    border: 1px solid var(--linear-border-subtle);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .event-body :global(thead) {
+    background: var(--linear-overlay-soft);
+  }
+
+  .event-body :global(th) {
+    font-weight: 600;
+    color: var(--linear-text-bright);
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--linear-border-subtle);
+  }
+
+  .event-body :global(td) {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--linear-border-subtle);
+    vertical-align: top;
+  }
+
+  .event-body :global(tbody tr:last-child td) {
+    border-bottom: none;
+  }
+
+  .event-body :global(tbody tr:hover) {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .event-footer {
+    max-width: 760px;
+    padding-top: 3rem;
+  }
+</style>

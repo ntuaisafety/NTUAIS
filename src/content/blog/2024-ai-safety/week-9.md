@@ -1,4 +1,5 @@
 ---
+bodyLanguage: zh-TW
 title: "讀書會第九週：RLHF 前景與挑戰"
 date: 2024-03-28T00:00:00+08:00
 draft: false

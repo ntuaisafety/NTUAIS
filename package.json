@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "test:i18n": "node --test tests/i18n.test.mjs"
   },
   "dependencies": {
     "astro": "^5.3.0",
@@ -15,6 +16,7 @@
     "remark-math": "^6.0.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "typescript": "^5.7.0"
   }
 }

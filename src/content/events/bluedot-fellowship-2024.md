@@ -1,4 +1,5 @@
 ---
+bodyLanguage: en
 title: "NTU AI Safety Reading Group 2024"
 description: "First cohort of our ten-week introductory program"
 summary: "Our inaugural BlueDot Fellowship, introducing participants to AI Safety fundamentals."

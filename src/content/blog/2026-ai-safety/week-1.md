@@ -1,4 +1,5 @@
 ---
+bodyLanguage: mul
 title: "2026 W1 - AI Safety 面臨的技挑戰 (Challenge of AI Safety)"
 date: 2026-03-23T21:15:00+08:00
 draft: false
