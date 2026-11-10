@@ -5,7 +5,9 @@ Official website for **NTUAIS** (National Taiwan University AI Safety Group).
 ## Bilingual preview
 
 English uses `/en/` and Traditional Chinese uses `/zh-TW/`, with the same
-English page slugs. Existing unprefixed URLs redirect to the English version. Run `npm run dev` and use **EN / 繁中** in the header.
+English page slugs. The root URL `/` displays the English homepage directly;
+other existing unprefixed URLs redirect to the English version.
+Run `npm run dev` and use **EN / 繁中** in the header.
 See [the bilingual content guide](docs/i18n.md) for adding translations, fallback
 rules, the initial translation scope and validation commands.
 
