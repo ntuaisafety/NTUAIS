@@ -76,7 +76,7 @@ This workshop is designed for students and industry professionals with a basic b
 
 - 具備 Python 程式設計經驗
 - 對深度學習有基本認識
-- 能完整參與兩天課程
+- 能完整參與兩天工作坊
 - 對 AI Safety 感到好奇，或有意進一步投入相關學習與研究
 
 ---

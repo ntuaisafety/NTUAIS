@@ -1,20 +1,16 @@
 ---
 bodyLanguage: en
 title: "NTU AI Safety Reading Group 2024"
-description: "First cohort of our ten-week introductory program"
-summary: "Our inaugural BlueDot Fellowship, introducing participants to AI Safety fundamentals."
+description: "Our introductory AI Safety reading group, drawing on the BlueDot Impact curriculum."
+summary: "Participants explored AI Safety fundamentals through readings and group discussions."
 date: 2024-01-04
-tags: ["fellowship", "introductory", "bluedot", "past"]
+tags: ["reading-group", "introductory", "bluedot", "past"]
 ---
 
-The first cohort of the BlueDot Fellowship program at NTUAIS.
+## Reading Group Overview
 
-## Program Overview
-
-A ten-week program for newcomers to AI Safety, covering BlueDot Impact course materials.
-
-**Duration:** September - November 2023
+NTUAIS independently organized this reading group using the BlueDot Impact curriculum as a reference. Participants explored foundational AI Safety concepts through readings and group discussions.
 
 ## Outcomes
 
-Participants successfully completed the introductory course and gained foundational knowledge in AI Safety.
+Participants developed a foundational understanding of AI Safety and exchanged ideas through collaborative discussions.

@@ -23,7 +23,7 @@ This year, inspired by how AI safety organizations at other universities approac
 
 ---
 
-## What We'll Cover｜課程內容
+## What We'll Cover｜討論主題
 
 Over 8 weeks, we'll read and discuss landmark AI safety papers together — each session we dive into the week's readings as a group, working through the core arguments, challenging each other's understanding, and exploring open questions.
 
@@ -113,7 +113,7 @@ This technical reading group is designed to be accessible and valuable for:
 
 ## Real-World Impact｜實際影響
 
-The effectiveness of this curriculum has been proven. According to BlueDot Impact's data, after completing similar programs:
+BlueDot Impact reports the following outcomes for participants in similar programs:
 
 * Many participants successfully transitioned into AI safety work
 * Participants gained clearer understanding of AI safety challenges
@@ -121,7 +121,7 @@ The effectiveness of this curriculum has been proven. According to BlueDot Impac
 
 ---
 
-這個課程的效果已經得到證實。根據 BlueDot Impact 的數據，完成類似項目後：
+根據 BlueDot Impact 的資料，參與類似計畫的人有以下收穫：
 
 * 許多參與者成功轉入 AI safety 工作
 * 參與者對 AI safety 挑戰有了更清晰的認識

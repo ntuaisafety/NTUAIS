@@ -1,10 +1,10 @@
 ---
-title: "Fundamental & Policy 2026: AI Safety Technical Course"
-description: "A 8-week guided course on Technical AI Safety, following the BlueDot Impact curriculum."
+title: "Fundamental & Policy 2026: AI Safety Reading Group"
+description: "An eight-week reading group on AI Safety fundamentals and policy, drawing on the BlueDot Impact curriculum."
 summary: "Join us for a deep dive into 'The Alignment Problem'. Learn about the drivers of AI progress, threat pathways, and defence strategies."
 date: 2026-03-16
 endDate: 2026-06-01
-tags: ["fellowship", "introductory", "bluedot", "upcoming", "technical"]
+tags: ["reading-group", "introductory", "bluedot", "upcoming", "technical"]
 badge: "Beginner Friendly"
 badge_color: "green"
 icon_path: "M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
@@ -16,7 +16,7 @@ The NTU AI Safety Reading Group aims to build a student community in Taiwan inte
 
 This year, drawing inspiration from how AI safety organizations at other universities structure their programs, we decided to launch a dedicated **Fundamental + Policy** track — combining foundational AI safety concepts with governance and policy discussions. Our goal is to welcome people from diverse backgrounds to explore different dimensions of AI safety together, broaden awareness of global AI safety developments, and help grow the conversation within Taiwan's own community.
 
-**Course Link**: [Technical AI Safety](https://bluedot.org/courses/technical-ai-safety/1/1)
+**Reference curriculum**: [BlueDot Impact — Technical AI Safety](https://bluedot.org/courses/technical-ai-safety/1/1)
 
 ---
 
@@ -25,7 +25,7 @@ This year, drawing inspiration from how AI safety organizations at other univers
 
 ---
 
-## What We'll Cover｜課程內容
+## What We'll Cover｜討論主題
 
 Over 8 weeks, we'll explore core AI safety concepts together through readings and group discussion — each session we work through the week's materials as a group, unpacking the key ideas, challenging each other's understanding, and connecting concepts to real-world implications.
 
@@ -117,7 +117,7 @@ This reading group is for you if you…
 
 ## Real-World Impact｜實際影響
 
-The effectiveness of this curriculum has been proven. According to BlueDot Impact's data, after completing similar programs:
+BlueDot Impact reports the following outcomes for participants in similar programs:
 
 * Many participants successfully transitioned into AI safety work
 * Participants gained clearer understanding of AI safety challenges
@@ -125,7 +125,7 @@ The effectiveness of this curriculum has been proven. According to BlueDot Impac
 
 ---
 
-這個課程的效果已經得到證實。根據 BlueDot Impact 的數據，完成類似項目後：
+根據 BlueDot Impact 的資料，參與類似計畫的人有以下收穫：
 
 * 許多參與者成功轉入 AI safety 工作
 * 參與者對 AI safety 挑戰有了更清晰的認識

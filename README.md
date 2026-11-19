@@ -84,7 +84,7 @@ description: "Short description"
 date: 2026-03-01
 badge: "Beginner Friendly"
 badge_color: "green"    # green | blue
-tags: ["fellowship", "introductory"]
+tags: ["reading-group", "introductory"]
 ---
 ```
 
